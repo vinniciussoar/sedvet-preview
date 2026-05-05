@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SED | Odontología Equina Especializada en Colombia</title>
+<meta name="description" content="SED Specialized Equine Dentistry — líderes en odontología equina en Colombia. Dr. Diego Velásquez, Maestría en Cirugía Odontológica Equina, USP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#BF9A52;
+  --gold-light:#D4B472;
+  --gold-pale:rgba(191,154,82,0.12);
+  --gold-pale2:rgba(191,154,82,0.06);
+  --dark:#0B0B09;
+  --dark2:#111110;
+  --dark3:#181816;
+  --dark4:#1F1F1C;
+  --ink:#EAE6DC;
+  --ink-mid:#A09A8C;
+  --ink-dim:#5A564E;
+  --line:rgba(191,154,82,0.14);
+}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--dark)}
+::-webkit-scrollbar-thumb{background:var(--gold)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 6vw;height:70px;transition:all .4s}
+nav.scrolled{background:rgba(11,11,9,.96);border-bottom:1px solid var(--line)}
+.nav-logo{font-family:'DM Mono',monospace;font-size:.95rem;letter-spacing:.18em;color:var(--gold);text-decoration:none;display:flex;align-items:center;gap:.7rem}
+.nav-logo::before{content:'';width:28px;height:1px;background:var(--gold)}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--ink-dim);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400;transition:color .2s;position:relative}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{border:1px solid var(--gold);color:var(--gold)!important;padding:.45rem 1.3rem;font-size:.76rem!important}
+.nav-cta:hover{background:var(--gold)!important;color:var(--dark)!important}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 6vw 10vh;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:
+  linear-gradient(to bottom,rgba(11,11,9,.2) 0%,rgba(11,11,9,.55) 50%,var(--dark) 100%),
+  url('https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=1800&q=80') center/cover no-repeat}
+.hero-eyebrow{display:flex;align-items:center;gap:.8rem;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;opacity:0;animation:up .9s .3s forwards}
+.hero-eyebrow span{width:40px;height:1px;background:var(--gold)}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,7.5vw,7rem);font-weight:400;line-height:1.04;color:var(--ink);margin-bottom:2rem;opacity:0;animation:up .9s .5s forwards}
+.hero-h1 em{font-style:italic;color:var(--gold-light)}
+.hero-p{max-width:480px;font-size:1rem;color:var(--ink-mid);line-height:1.8;margin-bottom:3.2rem;font-weight:300;opacity:0;animation:up .9s .7s forwards}
+.hero-btns{display:flex;gap:1.4rem;align-items:center;opacity:0;animation:up .9s .9s forwards}
+.btn-fill{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--dark);padding:.9rem 2.2rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;text-decoration:none;transition:background .2s,transform .2s}
+.btn-fill:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-line{color:var(--ink-mid);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:.9rem 0;border-bottom:1px solid var(--ink-dim);transition:color .2s,border-color .2s}
+.btn-line:hover{color:var(--gold);border-color:var(--gold)}
+.hero-index{position:absolute;right:5vw;bottom:8vh;display:flex;flex-direction:column;align-items:center;gap:.8rem;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--ink-dim);writing-mode:vertical-rl;opacity:0;animation:fade 1s 1.3s forwards}
+.hero-index::after{content:'';width:1px;height:56px;background:linear-gradient(to bottom,var(--gold),transparent)}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:2.2rem 2rem;border-right:1px solid var(--line);text-align:center;transition:background .3s}
+.stat:last-child{border-right:none}
+.stat:hover{background:var(--dark3)}
+.stat-n{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:400;color:var(--gold);line-height:1;margin-bottom:.4rem}
+.stat-l{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
+
+/* SECTION UTIL */
+.tag{display:inline-flex;align-items:center;gap:.6rem;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.tag::before{content:'';width:22px;height:1px;background:var(--gold)}
+.title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.4rem);font-weight:400;line-height:1.12;color:var(--ink);margin-bottom:1.2rem}
+.title em{font-style:italic;color:var(--gold-light)}
+.body-text{font-size:.95rem;color:var(--ink-mid);line-height:1.85;max-width:560px}
+
+/* SOBRE */
+#sobre{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;padding:8rem 6vw;background:var(--dark2)}
+.img-frame{position:relative;aspect-ratio:2/3;overflow:hidden}
+.img-frame img{width:100%;height:100%;object-fit:cover;filter:saturate(80%);transition:transform .7s,filter .7s}
+.img-frame:hover img{transform:scale(1.04);filter:saturate(100%)}
+.img-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(11,11,9,.6),transparent 55%)}
+.img-badge{position:absolute;bottom:1.6rem;left:1.6rem;z-index:1;background:var(--gold);color:var(--dark);padding:.5rem 1rem;font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+.sobre-text{padding:1rem 0}
+.cred{margin-top:2.8rem;padding:1.6rem;border-left:2px solid var(--gold);background:var(--gold-pale);margin-bottom:1rem}
+.cred-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+.cred p{font-size:.88rem;color:var(--ink-mid);line-height:1.7}
+.cred strong{color:var(--ink)}
+
+/* SERVIÇOS */
+#servicios{padding:8rem 6vw;background:var(--dark)}
+.srv-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;flex-wrap:wrap;gap:2rem}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+.srv-card{background:var(--dark2);padding:2.6rem 2.2rem;position:relative;overflow:hidden;cursor:default;transition:background .3s}
+.srv-card:hover{background:var(--dark3)}
+.srv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.srv-card:hover::before{transform:scaleX(1)}
+.srv-num{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--gold);margin-bottom:1.2rem;letter-spacing:.12em}
+.srv-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;color:var(--ink);line-height:1.4;margin-bottom:.8rem}
+.srv-desc{font-size:.82rem;color:var(--ink-dim);line-height:1.75}
+
+/* GALERIA */
+#galeria{padding:8rem 6vw;background:var(--dark2)}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:320px 240px;gap:6px;margin-top:3.5rem}
+.g1{grid-column:span 1;grid-row:span 2}
+.g2{grid-column:span 2}
+.g3{grid-column:span 1}
+.g4{grid-column:span 1}
+.g5{display:none}
+.gal-item{overflow:hidden;position:relative;background:var(--dark4)}
+.gal-item img{width:100%;height:100%;object-fit:cover;filter:saturate(75%);transition:transform .7s,filter .7s}
+.gal-item:hover img{transform:scale(1.06);filter:saturate(100%)}
+.gal-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(11,11,9,.35),transparent 60%);opacity:0;transition:opacity .4s}
+.gal-item:hover::after{opacity:1}
+
+/* DEPOIMENTOS */
+#testimonios{padding:8rem 6vw;background:var(--dark)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.testi-card{background:var(--dark3);border:1px solid var(--line);padding:2.2rem;position:relative}
+.testi-card::before{content:'\201C';font-family:'Playfair Display',serif;font-size:4rem;color:var(--gold);opacity:.3;position:absolute;top:.8rem;left:1.8rem;line-height:1}
+.testi-text{font-size:.9rem;color:var(--ink-mid);line-height:1.8;margin-bottom:1.5rem;padding-top:2rem}
+.testi-author{display:flex;align-items:center;gap:.8rem;border-top:1px solid var(--line);padding-top:1.2rem}
+.testi-avatar{width:38px;height:38px;border-radius:50%;background:var(--gold-pale);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.7rem;color:var(--gold);flex-shrink:0}
+.testi-name{font-size:.82rem;color:var(--ink);font-weight:500}
+.testi-role{font-size:.72rem;color:var(--ink-dim)}
+
+/* MISSÃO VISÃO */
+#mision{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line)}
+.mv{padding:5rem 4.5rem;background:var(--dark2)}
+.mv-tag{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+.mv-title{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:400;color:var(--ink);margin-bottom:1rem}
+.mv-text{font-size:.9rem;color:var(--ink-mid);line-height:1.85}
+.mv:first-child{border-top:3px solid var(--gold)}
+.mv:last-child{border-top:3px solid var(--ink-dim)}
+
+/* CONTATO */
+#contacto{padding:8rem 6vw;background:var(--dark3)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:7rem;margin-top:4rem}
+.ci-list{display:flex;flex-direction:column;gap:2.2rem}
+.ci{display:flex;gap:1.2rem;align-items:flex-start}
+.ci-icon{width:42px;height:42px;flex-shrink:0;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.ci-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.ci-val{font-size:.88rem;color:var(--ink-mid);line-height:1.6}
+.ci-val a{color:var(--gold);text-decoration:none}
+.cf{display:flex;flex-direction:column;gap:1rem}
+.fl{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:.3rem;display:block}
+input.fi,textarea.ft{width:100%;background:var(--dark2);border:1px solid var(--line);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:.88rem;padding:.85rem 1rem;outline:none;transition:border-color .2s;resize:none}
+input.fi:focus,textarea.ft:focus{border-color:var(--gold)}
+textarea.ft{min-height:110px}
+::placeholder{color:var(--ink-dim)}
+
+/* MAPA */
+.mapa{height:300px;overflow:hidden;position:relative;border-top:1px solid var(--line)}
+.mapa iframe{width:100%;height:100%;border:none;filter:grayscale(90%) invert(90%) contrast(80%)}
+.mapa-card{position:absolute;top:1.4rem;left:6vw;background:var(--dark);border:1px solid var(--line);padding:.9rem 1.4rem}
+.mapa-card strong{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.2rem}
+.mapa-card span{font-size:.82rem;color:var(--ink-mid)}
+
+/* FOOTER */
+footer{background:var(--dark);border-top:1px solid var(--line);padding:2.8rem 6vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.ft-logo{font-family:'DM Mono',monospace;font-size:.9rem;letter-spacing:.2em;color:var(--gold)}
+.ft-copy{font-size:.75rem;color:var(--ink-dim)}
+.ft-social a{width:34px;height:34px;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;color:var(--ink-dim);text-decoration:none;font-size:.85rem;margin-left:.6rem;transition:border-color .2s,color .2s}
+.ft-social a:hover{border-color:var(--gold);color:var(--gold)}
+
+/* WA FLOAT */
+.wa{position:fixed;bottom:2rem;right:2rem;z-index:200;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 22px rgba(37,211,102,.38);transition:transform .2s;animation:pulse 3.5s infinite}
+.wa:hover{transform:scale(1.1)}
+.wa svg{width:26px;height:26px;fill:#fff}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(28px);transition:opacity .75s,transform .75s}
+.r.on{opacity:1;transform:translateY(0)}
+
+/* ANIMS */
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{box-shadow:0 4px 22px rgba(37,211,102,.38)}50%{box-shadow:0 4px 32px rgba(37,211,102,.6)}}
+
+/* MOBILE */
+@media(max-width:768px){
+  #sobre,#mision,.contact-grid,.testi-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat{border-right:none;border-bottom:1px solid var(--line)}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .g1,.g2,.g3,.g4{grid-column:span 1;height:180px}
+  .nav-links{display:none}
+  .hero-h1{font-size:2.8rem}
+  footer{flex-direction:column;align-items:flex-start}
+  #sobre,#servicios,#galeria,#testimonios,#contacto{padding:5rem 6vw}
+  .mv{padding:3.5rem 2.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">SED</a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Nosotros</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#galeria">Portafolio</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-eyebrow"><span></span>Odontología Equina Especializada · Colombia</div>
+  <h1 class="hero-h1">La salud dental<br>de tu caballo,<br><em>en las mejores manos</em></h1>
+  <p class="hero-p">Diagnóstico preciso, procedimientos avanzados y un profundo compromiso con el bienestar equino. Atendemos en haras y establos de todo el país.</p>
+  <div class="hero-btns">
+    <a href="https://wa.link/wzy3jo" class="btn-fill" target="_blank">Agendar consulta →</a>
+    <a href="#sobre" class="btn-line">Conocer al Dr. Diego</a>
+  </div>
+  <div class="hero-index">Scroll</div>
+</section>
+
+<div class="stats">
+  <div class="stat r"><div class="stat-n">5+</div><div class="stat-l">Años de experiencia</div></div>
+  <div class="stat r"><div class="stat-n">USP</div><div class="stat-l">Maestría — São Paulo</div></div>
+  <div class="stat r"><div class="stat-n">2</div><div class="stat-l">Países de actuación</div></div>
+  <div class="stat r"><div class="stat-n">7</div><div class="stat-l">Servicios especializados</div></div>
+</div>
+
+<section id="sobre">
+  <div class="img-frame r">
+    <img src="https://sedvet.com.br/wp-content/uploads/2024/10/IMG_5205-1-1024x789.jpg" alt="Dr. Diego Velásquez">
+    <div class="img-badge">Dr. Diego Velásquez · MVZ</div>
+  </div>
+  <div class="sobre-text r">
+    <div class="tag">Quiénes somos</div>
+    <h2 class="title">Innovando la<br><em>odontología equina</em><br>en Colombia</h2>
+    <p class="body-text">Idealizada en 2020, SED nació con la misión de elevar el estándar de la salud dental equina en Colombia. Combinamos conocimiento científico de alto nivel con un trato cercano y comprometido con cada animal.</p>
+    <div class="cred">
+      <div class="cred-label">Formación Académica</div>
+      <p><strong>Maestría en Cirugía Odontológica Equina</strong><br>Centro de Odontología Equina — Universidade de São Paulo, Brasil.<br>Cursos especializados nacionales e internacionales.</p>
+    </div>
+    <div class="cred" style="border-left-color:var(--ink-dim)">
+      <div class="cred-label" style="color:var(--ink-mid)">Registro Profesional</div>
+      <p><strong>Médico Veterinario y Zootecnista</strong><br>Reg. Prof. 15.234-B — Colombia</p>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="srv-head">
+    <div>
+      <div class="tag r">Lo que ofrecemos</div>
+      <h2 class="title r">Nuestros <em>servicios</em></h2>
+    </div>
+    <a href="https://wa.link/wzy3jo" class="btn-line r" target="_blank">Agendar consulta →</a>
+  </div>
+  <div class="srv-grid r">
+    <div class="srv-card">
+      <div class="srv-num">01</div>
+      <div class="srv-name">Tratamiento de Sinusitis Secundaria</div>
+      <div class="srv-desc">Diagnóstico y tratamiento de sinusitis equina derivada de afecciones dentales, con protocolos de última generación.</div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-num">02</div>
+      <div class="srv-name">Radiología de Cabeza Equina</div>
+      <div class="srv-desc">Imágenes de alta precisión para diagnóstico de estructuras dentales y óseas del cráneo equino.</div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-num">03</div>
+      <div class="srv-name">Cirugía Sinusal — Trepanación y Sinusotomía</div>
+      <div class="srv-desc">Procedimientos quirúrgicos especializados para acceso y tratamiento de los senos paranasales equinos.</div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-num">04</div>
+      <div class="srv-name">Extracciones Dentarias Intraoral y Extraoral</div>
+      <div class="srv-desc">Exodoncias con técnicas mínimamente invasivas, priorizando el confort y la recuperación del animal.</div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-num">05</div>
+      <div class="srv-name">Atención Odontológica y Odontoplastia</div>
+      <div class="srv-desc">Equilibrio oclusal completo para mejorar la masticación, el confort con el freno y el rendimiento deportivo.</div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-num">06</div>
+      <div class="srv-name">Examen Odontológico Pre-compra</div>
+      <div class="srv-desc">Evaluación completa del estado dental antes de adquirir el equino. Transparencia total en la transacción.</div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-num">07</div>
+      <div class="srv-name">Oroscopia</div>
+      <div class="srv-desc">Examen visual detallado de la cavidad oral con equipos especializados para identificar lesiones y anomalías.</div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="tag r">Portafolio</div>
+  <h2 class="title r">Nuestro <em>trabajo</em></h2>
+  <p class="body-text r">Procedimientos realizados por nuestro equipo en Colombia y Brasil.</p>
+  <div class="gal-grid r">
+    <div class="gal-item g1">
+      <img src="https://sedvet.com.br/wp-content/uploads/2024/10/IMG_5660-1-scaled-1-1024x768.jpg" alt="Procedimento equino">
+    </div>
+    <div class="gal-item g2">
+      <img src="https://sedvet.com.br/wp-content/uploads/2024/10/Tratamiento-de-Simusitis--scaled.jpg" alt="Tratamiento sinusitis">
+    </div>
+    <div class="gal-item g3">
+      <img src="https://sedvet.com.br/wp-content/uploads/2024/10/Cirugia-sinusais-1003x1024.jpg" alt="Cirugía sinusal">
+    </div>
+    <div class="gal-item g4">
+      <img src="https://sedvet.com.br/wp-content/uploads/2024/10/Atendimiento-Odontologico-1-scaled.jpg" alt="Atención odontológica">
+    </div>
+  </div>
+</section>
+
+<section id="testimonios">
+  <div class="tag r">Lo que dicen</div>
+  <h2 class="title r"><em>Testimonios</em></h2>
+  <p class="body-text r">La confianza de propietarios de haras y criadores que han vivido el trabajo del Dr. Diego.</p>
+  <div class="testi-grid">
+    <div class="testi-card r">
+      <p class="testi-text">El Dr. Diego diagnosticó en una sola visita un problema que llevábamos meses buscando. Nuestro caballo de competencia recuperó el rendimiento por completo. Profesionalismo excepcional.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AC</div>
+        <div><div class="testi-name">Andrés Camacho</div><div class="testi-role">Haras El Retiro · Bogotá</div></div>
+      </div>
+    </div>
+    <div class="testi-card r">
+      <p class="testi-text">Lo que más valoro es la transparencia. Antes de cualquier procedimiento, el Dr. Diego explica todo con detalle. El bienestar del animal siempre es la prioridad.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">MV</div>
+        <div><div class="testi-name">María Vargas</div><div class="testi-role">Criadora · Medellín</div></div>
+      </div>
+    </div>
+    <div class="testi-card r">
+      <p class="testi-text">Viajó hasta nuestro haras en el Valle y el servicio fue impecable. Atendió a cuatro caballos en el mismo día, con la misma dedicación en cada uno. Lo recomiendo sin dudarlo.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">JR</div>
+        <div><div class="testi-name">Jorge Rodríguez</div><div class="testi-role">Haras Palomar · Valle del Cauca</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mision" style="padding:0">
+  <div class="mv r">
+    <div class="mv-tag">Misión</div>
+    <div class="mv-title">Excelencia en el cuidado dental equino</div>
+    <p class="mv-text">Proveer cuidados odontológicos de excelencia para equinos utilizando las técnicas y equipos más avanzados, garantizando el bienestar, la salud dental y el mejor desempeño de cada animal.</p>
+  </div>
+  <div class="mv r">
+    <div class="mv-tag">Visión</div>
+    <div class="mv-title">Referencia en odontología equina</div>
+    <p class="mv-text">Ser reconocida como empresa líder en odontología equina en Colombia y referencia en innovación, calidad y atención especializada, expandiendo nuestra presencia a nivel internacional.</p>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="tag r">Estamos aquí</div>
+  <h2 class="title r">Habla con <em>nosotros</em></h2>
+  <p class="body-text r">Urgencia en el haras o revisión de rutina — respondemos rápido.</p>
+  <div class="contact-grid">
+    <div class="ci-list r">
+      <div class="ci">
+        <div class="ci-icon">📍</div>
+        <div><div class="ci-label">Ubicación</div><div class="ci-val">Bogotá, Colombia<br>Atención a domicilio en todo el país</div></div>
+      </div>
+      <div class="ci">
+        <div class="ci-icon">💬</div>
+        <div><div class="ci-label">WhatsApp</div><div class="ci-val">Respuesta rápida · <a href="https://wa.link/wzy3jo" target="_blank">Abrir chat →</a></div></div>
+      </div>
+      <div class="ci">
+        <div class="ci-icon">📷</div>
+        <div><div class="ci-label">Instagram</div><div class="ci-val"><a href="https://www.instagram.com/sed_vet" target="_blank">@sed_vet</a></div></div>
+      </div>
+      <div class="ci">
+        <div class="ci-icon">🕐</div>
+        <div><div class="ci-label">Horario</div><div class="ci-val">Lun – Vie · 8:00 – 18:00<br>Urgencias: disponibilidad 24h</div></div>
+      </div>
+    </div>
+    <div class="cf r">
+      <div><label class="fl">Nombre</label><input type="text" class="fi" placeholder="Tu nombre completo"></div>
+      <div><label class="fl">Correo electrónico</label><input type="email" class="fi" placeholder="tu@correo.com"></div>
+      <div><label class="fl">Mensaje</label><textarea class="ft" placeholder="Cuéntanos sobre tu caballo y qué necesitas..."></textarea></div>
+      <a href="https://wa.link/wzy3jo" class="btn-fill" target="_blank" style="align-self:flex-start">Enviar por WhatsApp →</a>
+    </div>
+  </div>
+</section>
+
+<div class="mapa">
+  <iframe src="https://maps.google.com/maps?q=4.618849,-74.146281&t=m&z=12&output=embed&iwloc=near" allowfullscreen loading="lazy"></iframe>
+  <div class="mapa-card"><strong>Ubicación</strong><span>Bogotá, Colombia</span></div>
+</div>
+
+<footer>
+  <div class="ft-logo">SED</div>
+  <div class="ft-copy">© 2024–2026 SED Specialized Equine Dentistry. Todos los derechos reservados.</div>
+  <div class="ft-social">
+    <a href="https://www.instagram.com/sed_vet" target="_blank" title="Instagram">
+      <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+  </div>
+</footer>
+
+<a href="https://wa.link/wzy3jo" class="wa" target="_blank" title="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.997 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.404A9.964 9.964 0 0011.997 22C17.522 22 22 17.523 22 12S17.522 2 11.997 2zm0 18.18a8.17 8.17 0 01-4.164-1.14l-.299-.178-3.095.872.833-3.23-.195-.313A8.17 8.17 0 013.82 12c0-4.509 3.668-8.18 8.177-8.18 4.51 0 8.18 3.671 8.18 8.18s-3.67 8.18-8.18 8.18z"/></svg>
+</a>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+const obs=new IntersectionObserver((es)=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),i*90);obs.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
