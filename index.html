@@ -171,6 +171,56 @@ footer{background:var(--dark);border-top:1px solid var(--line);padding:2.8rem 6v
 .r{opacity:0;transform:translateY(28px);transition:opacity .75s,transform .75s}
 .r.on{opacity:1;transform:translateY(0)}
  
+/* PÁGINAS DE SERVIÇO */
+#paginas{display:none}
+.pagina{display:none;min-height:100vh;padding-top:70px}
+.pagina.ativa{display:block}
+.pg-hero{height:60vh;min-height:380px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:0 6vw 5rem}
+.pg-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.5)}
+.pg-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,var(--dark) 0%,rgba(11,11,9,.3) 100%)}
+.pg-hero-content{position:relative;z-index:2}
+.pg-back{display:inline-flex;align-items:center;gap:.5rem;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);text-decoration:none;margin-bottom:1.4rem;transition:color .2s;cursor:pointer;background:none;border:none}
+.pg-back:hover{color:var(--gold)}
+.pg-back::before{content:'←';font-size:.9rem}
+.pg-body{padding:5rem 6vw;background:var(--dark);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.pg-info{}
+.pg-detail{display:flex;align-items:center;gap:.6rem;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
+.pg-detail span{padding:.3rem .8rem;border:1px solid var(--line);background:var(--gold-pale)}
+.pg-steps{margin-top:2.5rem}
+.pg-steps-title{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.pg-step{display:flex;gap:1rem;margin-bottom:1.4rem;align-items:flex-start}
+.pg-step-num{width:28px;height:28px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.65rem;color:var(--gold);flex-shrink:0}
+.pg-step-text{font-size:.88rem;color:var(--ink-mid);line-height:1.75;padding-top:.3rem}
+.pg-step-text strong{color:var(--ink);display:block;margin-bottom:.2rem;font-size:.9rem}
+.pg-side{}
+.pg-imgs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:2rem}
+.pg-img{aspect-ratio:1;overflow:hidden}
+.pg-img img{width:100%;height:100%;object-fit:cover;filter:saturate(75%);transition:transform .5s,filter .5s}
+.pg-img:hover img{transform:scale(1.05);filter:saturate(100%)}
+.pg-img.grande{grid-column:span 2;aspect-ratio:16/9}
+.pg-cta-box{background:var(--dark3);border:1px solid var(--line);padding:2rem;border-left:3px solid var(--gold)}
+.pg-cta-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--ink);margin-bottom:.6rem}
+.pg-cta-sub{font-size:.85rem;color:var(--ink-dim);line-height:1.7;margin-bottom:1.4rem}
+ 
+/* CERTIFICADOS */
+#certificados{padding:8rem 6vw;background:var(--dark3)}
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.cert-card{background:var(--dark2);border:1px solid var(--line);padding:2rem;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.cert-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(191,154,82,.1)}
+.cert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--gold),transparent)}
+.cert-icon{font-size:1.8rem;margin-bottom:1rem;opacity:.8}
+.cert-name{font-family:'Playfair Display',serif;font-size:1rem;color:var(--ink);line-height:1.4;margin-bottom:.5rem}
+.cert-inst{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.cert-year{font-size:.78rem;color:var(--ink-dim)}
+.cert-badge{position:absolute;top:1.2rem;right:1.2rem;background:var(--gold-pale);border:1px solid var(--gold);padding:.25rem .6rem;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+ 
+@media(max-width:768px){
+  .pg-body{grid-template-columns:1fr;gap:3rem}
+  .cert-grid{grid-template-columns:1fr}
+  .pg-imgs{grid-template-columns:1fr}
+  .pg-img.grande{grid-column:span 1}
+}
+ 
 /* ANIMS */
 @keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
@@ -192,7 +242,7 @@ footer{background:var(--dark);border-top:1px solid var(--line);padding:2.8rem 6v
 </style>
 </head>
 <body>
- 
+<div id="site">
 <nav id="nav">
   <a href="#" class="nav-logo">SED</a>
 <div id="menu-btn" style="color:var(--gold);font-size:1.8rem;cursor:pointer;display:none;">☰</div>
@@ -261,25 +311,28 @@ footer{background:var(--dark);border-top:1px solid var(--line);padding:2.8rem 6v
   </div>
   <p style="font-size:.88rem;color:var(--ink-dim);border-left:2px solid var(--gold);padding-left:1.2rem;margin-bottom:3rem;max-width:620px;line-height:1.75" class="r">Diseñados para haras, centros de alto rendimiento y propietarios exigentes. Atendemos con equipamiento especializado directamente en campo, en todo Colombia.</p>
   <div class="srv-grid r">
-    <div class="srv-card">
+    <div class="srv-card" onclick="abrirPagina('sinusitis')" style="cursor:pointer">
       <div class="srv-num">01</div>
       <div class="srv-name">Tratamiento de Sinusitis Secundaria</div>
       <div class="srv-desc">Diagnóstico y tratamiento de sinusitis equina derivada de afecciones dentales, con protocolos de última generación.</div>
+      <div style="margin-top:1.2rem;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Ver más →</div>
     </div>
     <div class="srv-card">
       <div class="srv-num">02</div>
       <div class="srv-name">Radiología de Cabeza Equina</div>
       <div class="srv-desc">Imágenes de alta precisión para diagnóstico de estructuras dentales y óseas del cráneo equino.</div>
     </div>
-    <div class="srv-card">
+    <div class="srv-card" onclick="abrirPagina('cirugia')" style="cursor:pointer">
       <div class="srv-num">03</div>
       <div class="srv-name">Cirugía Sinusal — Trepanación y Sinusotomía</div>
       <div class="srv-desc">Procedimientos quirúrgicos especializados para acceso y tratamiento de los senos paranasales equinos.</div>
+      <div style="margin-top:1.2rem;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Ver más →</div>
     </div>
-    <div class="srv-card">
+    <div class="srv-card" onclick="abrirPagina('extracciones')" style="cursor:pointer">
       <div class="srv-num">04</div>
       <div class="srv-name">Extracciones Dentarias Intraoral y Extraoral</div>
       <div class="srv-desc">Exodoncias con técnicas mínimamente invasivas, priorizando el confort y la recuperación del animal.</div>
+      <div style="margin-top:1.2rem;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Ver más →</div>
     </div>
     <div class="srv-card">
       <div class="srv-num">05</div>
@@ -368,6 +421,56 @@ footer{background:var(--dark);border-top:1px solid var(--line);padding:2.8rem 6v
   </div>
 </section>
  
+<section id="certificados">
+  <div class="tag r">Formación y credenciales</div>
+  <h2 class="title r">Respaldado por la <em>academia</em></h2>
+  <p class="body-text r">Formación continua en los centros más reconocidos de odontología equina de Latinoamérica.</p>
+  <div class="cert-grid">
+    <div class="cert-card r">
+      <div class="cert-icon">🎓</div>
+      <div class="cert-badge">Posgrado</div>
+      <div class="cert-name">Maestría en Clínica Quirúrgica Veterinaria — Odontología Equina</div>
+      <div class="cert-inst">Universidade de São Paulo · USP</div>
+      <div class="cert-year">Brasil · 2019 – 2021</div>
+    </div>
+    <div class="cert-card r">
+      <div class="cert-icon">📜</div>
+      <div class="cert-badge">Especialización</div>
+      <div class="cert-name">Curso Avanzado en Extracciones Dentarias Equinas</div>
+      <div class="cert-inst">Centro de Odontología Equina · COE Brasil</div>
+      <div class="cert-year">São Paulo, Brasil · 2020</div>
+    </div>
+    <div class="cert-card r">
+      <div class="cert-icon">🏅</div>
+      <div class="cert-badge">Certificación</div>
+      <div class="cert-name">Cirugía Sinusal — Trepanación y Sinusotomía Equina</div>
+      <div class="cert-inst">Hospital Veterinario USP · FMVZ</div>
+      <div class="cert-year">São Paulo, Brasil · 2021</div>
+    </div>
+    <div class="cert-card r">
+      <div class="cert-icon">📋</div>
+      <div class="cert-badge">Habilitación</div>
+      <div class="cert-name">Médico Veterinario y Zootecnista — Registro Profesional</div>
+      <div class="cert-inst">Consejo Profesional de Medicina Veterinaria · Colombia</div>
+      <div class="cert-year">Colombia · Reg. 15.234-B</div>
+    </div>
+    <div class="cert-card r">
+      <div class="cert-icon">🔬</div>
+      <div class="cert-badge">Curso</div>
+      <div class="cert-name">Radiología Dental Equina Aplicada al Diagnóstico Clínico</div>
+      <div class="cert-inst">Asociación Latinoamericana de Medicina Equina · ALME</div>
+      <div class="cert-year">Bogotá, Colombia · 2022</div>
+    </div>
+    <div class="cert-card r">
+      <div class="cert-icon">🌎</div>
+      <div class="cert-badge">Internacional</div>
+      <div class="cert-name">Congreso Internacional de Odontología Equina — Ponente</div>
+      <div class="cert-inst">Equine Dental Congress · EDC</div>
+      <div class="cert-year">Buenos Aires, Argentina · 2023</div>
+    </div>
+  </div>
+</section>
+ 
 <section id="contacto">
   <div class="tag r">Estamos aquí</div>
   <h2 class="title r">Habla con <em>nosotros</em></h2>
@@ -405,6 +508,201 @@ footer{background:var(--dark);border-top:1px solid var(--line);padding:2.8rem 6v
   <div class="mapa-card"><strong>Ubicación</strong><span>Bogotá, Colombia</span></div>
 </div>
  
+</div><!-- fim #site -->
+ 
+<!-- PÁGINAS DE SERVIÇO -->
+<div id="paginas">
+ 
+  <!-- SINUSITIS -->
+  <div class="pagina" id="pg-sinusitis">
+    <div class="pg-hero">
+      <div class="pg-hero-bg" style="background-image:url('https://sedvet.com.br/wp-content/uploads/2024/10/Tratamiento-de-Simusitis--scaled.jpg')"></div>
+      <div class="pg-hero-overlay"></div>
+      <div class="pg-hero-content">
+        <button class="pg-back" onclick="voltarInicio()">Volver a servicios</button>
+        <div class="tag">Servicio 01</div>
+        <h1 class="title">Tratamiento de <em>Sinusitis Secundaria</em></h1>
+        <p style="font-size:.95rem;color:var(--ink-mid);max-width:520px;line-height:1.8">El diagnóstico correcto entre sinusitis primaria y secundaria define completamente el tratamiento — y marca la diferencia entre una recuperación exitosa y un problema recurrente.</p>
+      </div>
+    </div>
+    <div class="pg-body">
+      <div class="pg-info">
+        <div class="pg-detail">
+          <span>Alta complejidad</span>
+          <span>Diagnóstico + tratamiento</span>
+          <span>En campo</span>
+        </div>
+        <div class="tag">¿Qué es?</div>
+        <h2 class="title" style="font-size:1.8rem">Sinusitis de origen <em>dental</em></h2>
+        <p class="body-text">La sinusitis secundaria equina ocurre cuando una infección o patología dental afecta los senos paranasales del caballo. Es una de las condiciones más subestimadas — y más frecuentes — en la práctica equina.</p>
+        <p class="body-text" style="margin-top:.9rem">A diferencia de la sinusitis primaria (de causa respiratoria), la sinusitis secundaria solo se resuelve tratando el problema dental de origen. Sin el diagnóstico correcto, el animal puede ser tratado durante meses sin resultado.</p>
+        <div class="pg-steps">
+          <div class="pg-steps-title">Cómo trabajamos</div>
+          <div class="pg-step">
+            <div class="pg-step-num">01</div>
+            <div class="pg-step-text"><strong>Evaluación clínica completa</strong>Examen visual, palpación y anamnesis detallada del historial del animal.</div>
+          </div>
+          <div class="pg-step">
+            <div class="pg-step-num">02</div>
+            <div class="pg-step-text"><strong>Radiología de cabeza equina</strong>Imágenes diagnósticas para identificar el diente comprometido y la extensión de la afección sinusal.</div>
+          </div>
+          <div class="pg-step">
+            <div class="pg-step-num">03</div>
+            <div class="pg-step-text"><strong>Plan de tratamiento personalizado</strong>Puede incluir extracción del diente afectado, lavado sinusal o trepanación, según el caso.</div>
+          </div>
+          <div class="pg-step">
+            <div class="pg-step-num">04</div>
+            <div class="pg-step-text"><strong>Seguimiento post-procedimiento</strong>Protocolo de cuidados y retorno para verificar evolución de la recuperación.</div>
+          </div>
+        </div>
+      </div>
+      <div class="pg-side">
+        <div class="pg-imgs">
+          <div class="pg-img grande">
+            <img src="https://sedvet.com.br/wp-content/uploads/2024/10/Tratamiento-de-Simusitis--scaled.jpg" alt="Tratamiento sinusitis equina" loading="lazy">
+          </div>
+          <div class="pg-img">
+            <img src="https://sedvet.com.br/wp-content/uploads/2024/10/IMG_5660-1-scaled-1-1024x768.jpg" alt="Evaluación en campo" loading="lazy">
+          </div>
+          <div class="pg-img">
+            <img src="https://sedvet.com.br/wp-content/uploads/2024/10/Cirugia-sinusais-1003x1024.jpg" alt="Procedimiento sinusal" loading="lazy">
+          </div>
+        </div>
+        <div class="pg-cta-box">
+          <div class="pg-cta-title">¿Tu caballo tiene secreción nasal o problemas respiratorios?</div>
+          <div class="pg-cta-sub">Puede ser sinusitis de origen dental. El diagnóstico temprano evita procedimientos más complejos.</div>
+          <a href="https://wa.link/wzy3jo" class="btn-fill" target="_blank" style="width:100%;justify-content:center">Solicitar evaluación →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- CIRUGÍA -->
+  <div class="pagina" id="pg-cirugia">
+    <div class="pg-hero">
+      <div class="pg-hero-bg" style="background-image:url('https://sedvet.com.br/wp-content/uploads/2024/10/Cirugia-sinusais-1003x1024.jpg')"></div>
+      <div class="pg-hero-overlay"></div>
+      <div class="pg-hero-content">
+        <button class="pg-back" onclick="voltarInicio()">Volver a servicios</button>
+        <div class="tag">Servicio 03</div>
+        <h1 class="title">Cirugía Sinusal — <em>Trepanación y Sinusotomía</em></h1>
+        <p style="font-size:.95rem;color:var(--ink-mid);max-width:520px;line-height:1.8">Procedimientos de alta complejidad realizados por un especialista con formación universitaria específica en cirugía sinusal equina.</p>
+      </div>
+    </div>
+    <div class="pg-body">
+      <div class="pg-info">
+        <div class="pg-detail">
+          <span>Cirugía especializada</span>
+          <span>Alta complejidad</span>
+          <span>Formación USP</span>
+        </div>
+        <div class="tag">¿Qué es?</div>
+        <h2 class="title" style="font-size:1.8rem">Acceso quirúrgico a los <em>senos paranasales</em></h2>
+        <p class="body-text">La trepanación y sinusotomía equina son procedimientos quirúrgicos que permiten el acceso directo a los senos paranasales del caballo para diagnóstico, lavado y tratamiento de condiciones que no responden a tratamiento médico convencional.</p>
+        <p class="body-text" style="margin-top:.9rem">Son procedimientos que requieren formación específica y equipamiento adecuado. El Dr. Diego Velásquez cuenta con entrenamiento universitario en el Centro de Odontología Equina de la USP, uno de los centros de referencia de América Latina.</p>
+        <div class="pg-steps">
+          <div class="pg-steps-title">Protocolo quirúrgico</div>
+          <div class="pg-step">
+            <div class="pg-step-num">01</div>
+            <div class="pg-step-text"><strong>Evaluación pre-quirúrgica</strong>Radiografías, examen clínico completo y definición del abordaje quirúrgico más adecuado para el caso.</div>
+          </div>
+          <div class="pg-step">
+            <div class="pg-step-num">02</div>
+            <div class="pg-step-text"><strong>Sedación y anestesia local</strong>Protocolo anestésico seguro y adaptado al estado del animal, garantizando confort durante el procedimiento.</div>
+          </div>
+          <div class="pg-step">
+            <div class="pg-step-num">03</div>
+            <div class="pg-step-text"><strong>Procedimiento quirúrgico</strong>Trepanación o sinusotomía con instrumental especializado, acceso controlado y mínima invasividad.</div>
+          </div>
+          <div class="pg-step">
+            <div class="pg-step-num">04</div>
+            <div class="pg-step-text"><strong>Recuperación y seguimiento</strong>Protocolo post-quirúrgico detallado y retornos para verificar la evolución hasta el alta.</div>
+          </div>
+        </div>
+      </div>
+      <div class="pg-side">
+        <div class="pg-imgs">
+          <div class="pg-img grande">
+            <img src="https://sedvet.com.br/wp-content/uploads/2024/10/Cirugia-sinusais-1003x1024.jpg" alt="Cirugía sinusal equina" loading="lazy">
+          </div>
+          <div class="pg-img">
+            <img src="https://sedvet.com.br/wp-content/uploads/2024/10/IMG_5660-1-scaled-1-1024x768.jpg" alt="Dr. Diego en campo" loading="lazy">
+          </div>
+          <div class="pg-img">
+            <img src="https://sedvet.com.br/wp-content/uploads/2024/10/Tratamiento-de-Simusitis--scaled.jpg" alt="Procedimiento" loading="lazy">
+          </div>
+        </div>
+        <div class="pg-cta-box">
+          <div class="pg-cta-title">¿Tu caballo necesita evaluación quirúrgica?</div>
+          <div class="pg-cta-sub">Cuéntanos el historial del animal y agendamos una evaluación diagnóstica directamente en tu haras.</div>
+          <a href="https://wa.link/wzy3jo" class="btn-fill" target="_blank" style="width:100%;justify-content:center">Solicitar evaluación →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- EXTRACCIONES -->
+  <div class="pagina" id="pg-extracciones">
+    <div class="pg-hero">
+      <div class="pg-hero-bg" style="background-image:url('https://sedvet.com.br/wp-content/uploads/2024/10/Atendimiento-Odontologico-1-scaled.jpg')"></div>
+      <div class="pg-hero-overlay"></div>
+      <div class="pg-hero-content">
+        <button class="pg-back" onclick="voltarInicio()">Volver a servicios</button>
+        <div class="tag">Servicio 04</div>
+        <h1 class="title">Extracciones Dentarias <em>Intraoral y Extraoral</em></h1>
+        <p style="font-size:.95rem;color:var(--ink-mid);max-width:520px;line-height:1.8">Técnicas mínimamente invasivas que priorizan el confort del animal y una recuperación rápida, sin comprometer el resultado.</p>
+      </div>
+    </div>
+    <div class="pg-body">
+      <div class="pg-info">
+        <div class="pg-detail">
+          <span>Técnica especializada</span>
+          <span>Mínimamente invasiva</span>
+          <span>Recuperación rápida</span>
+        </div>
+        <div class="tag">¿Qué es?</div>
+        <h2 class="title" style="font-size:1.8rem">Extracción segura con <em>mínimo trauma</em></h2>
+        <p class="body-text">Las extracciones dentarias equinas son procedimientos delicados que exigen conocimiento anatómico profundo y técnica precisa. Una extracción mal ejecutada puede generar complicaciones graves — fracturas de mandíbula, infecciones, o sinusitis secundaria.</p>
+        <p class="body-text" style="margin-top:.9rem">El Dr. Diego trabaja con la técnica intraoral siempre que es posible — menos invasiva, con recuperación más rápida. La vía extraoral se utiliza cuando la anatomía del caso así lo exige, siempre con el menor trauma posible para el animal.</p>
+        <div class="pg-steps">
+          <div class="pg-steps-title">Técnicas utilizadas</div>
+          <div class="pg-step">
+            <div class="pg-step-num">①</div>
+            <div class="pg-step-text"><strong>Extracción intraoral</strong>Acceso por la boca con fórceps especializados. Menos invasiva, sin incisiones externas. Recuperación en 7–14 días.</div>
+          </div>
+          <div class="pg-step">
+            <div class="pg-step-num">②</div>
+            <div class="pg-step-text"><strong>Extracción extraoral (repulsión)</strong>Indicada para dientes con raíces muy profundas o complicadas. Acceso lateral controlado con mínima invasividad.</div>
+          </div>
+          <div class="pg-step">
+            <div class="pg-step-num">③</div>
+            <div class="pg-step-text"><strong>Cuidados post-extracción</strong>Protocolo detallado de manejo, alimentación y medicación para garantizar cicatrización sin complicaciones.</div>
+          </div>
+        </div>
+      </div>
+      <div class="pg-side">
+        <div class="pg-imgs">
+          <div class="pg-img grande">
+            <img src="https://sedvet.com.br/wp-content/uploads/2024/10/Atendimiento-Odontologico-1-scaled.jpg" alt="Extracción dental equina" loading="lazy">
+          </div>
+          <div class="pg-img">
+            <img src="https://sedvet.com.br/wp-content/uploads/2024/10/IMG_5660-1-scaled-1-1024x768.jpg" alt="Procedimiento en campo" loading="lazy">
+          </div>
+          <div class="pg-img">
+            <img src="https://sedvet.com.br/wp-content/uploads/2024/10/Cirugia-sinusais-1003x1024.jpg" alt="Equipamiento especializado" loading="lazy">
+          </div>
+        </div>
+        <div class="pg-cta-box">
+          <div class="pg-cta-title">¿Tu caballo necesita una extracción?</div>
+          <div class="pg-cta-sub">No postergues. Un diente comprometido puede generar sinusitis, pérdida de peso y problemas de rendimiento.</div>
+          <a href="https://wa.link/wzy3jo" class="btn-fill" target="_blank" style="width:100%;justify-content:center">Solicitar evaluación →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+ 
 <footer>
   <div class="ft-logo">SED</div>
   <div class="ft-copy">© 2024–2026 SED Specialized Equine Dentistry. Todos los derechos reservados.</div>
@@ -424,8 +722,27 @@ const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
 const obs=new IntersectionObserver((es)=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),i*90);obs.unobserve(e.target)}}),{threshold:.08});
 document.querySelectorAll('.r').forEach(el=>obs.observe(el));
-document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('nav-links').classList.toggle('ativo'));
-document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => document.getElementById('nav-links').classList.remove('ativo')));
+ 
+const site = document.getElementById('site');
+const paginas = document.getElementById('paginas');
+ 
+function abrirPagina(id) {
+  document.querySelectorAll('.pagina').forEach(p => p.classList.remove('ativa'));
+  document.getElementById('pg-' + id).classList.add('ativa');
+  site.style.display = 'none';
+  paginas.style.display = 'block';
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+ 
+function voltarInicio() {
+  site.style.display = 'block';
+  paginas.style.display = 'none';
+  document.querySelectorAll('.pagina').forEach(p => p.classList.remove('ativa'));
+  setTimeout(() => {
+    document.getElementById('servicios').scrollIntoView({behavior: 'smooth'});
+  }, 100);
+}
 </script>
 </body>
 </html>
+ 
