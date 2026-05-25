@@ -217,6 +217,103 @@ footer{background:var(--dark);border-top:1px solid var(--line);padding:2.8rem 6v
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes pulse{0%,100%{box-shadow:0 4px 22px rgba(37,211,102,.38)}50%{box-shadow:0 4px 32px rgba(37,211,102,.6)}}
 
+/* PROBLEMA / SOLUÇÃO */
+#problema{padding:8rem 6vw;background:var(--dark2)}
+.ps-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:3rem;align-items:start;margin-top:3.5rem}
+.ps-col h3{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.8rem;display:flex;align-items:center;gap:.7rem}
+.ps-col h3::before{content:'';width:24px;height:1px}
+.ps-col.problema h3{color:#C77B7B}
+.ps-col.problema h3::before{background:#C77B7B}
+.ps-col.solucao h3{color:var(--gold)}
+.ps-col.solucao h3::before{background:var(--gold)}
+.ps-item{background:var(--dark3);border:1px solid var(--line);padding:1.5rem 1.6rem;margin-bottom:1rem;display:flex;gap:1rem;align-items:flex-start;transition:transform .3s,border-color .3s}
+.ps-item:hover{transform:translateX(4px)}
+.ps-col.problema .ps-item:hover{border-color:rgba(199,123,123,.4)}
+.ps-col.solucao .ps-item:hover{border-color:var(--gold)}
+.ps-ico{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.85rem;font-weight:600;font-family:'DM Mono',monospace}
+.problema .ps-ico{background:rgba(199,123,123,.12);color:#C77B7B}
+.solucao .ps-ico{background:var(--gold-pale);color:var(--gold)}
+.ps-item h4{font-size:.92rem;color:var(--ink);font-weight:500;margin-bottom:.3rem;font-family:'DM Sans',sans-serif}
+.ps-item p{font-size:.78rem;color:var(--ink-dim);line-height:1.6}
+.ps-arrow{display:flex;align-items:center;color:var(--gold);font-size:1.6rem;padding-top:3rem;font-family:'Playfair Display',serif}
+
+/* COMO FUNCIONA */
+#como-funciona{padding:8rem 6vw;background:var(--dark)}
+.cf-pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:3.5rem;position:relative}
+.cf-pasos::before{content:'';position:absolute;top:42px;left:calc(16.66% + 24px);right:calc(16.66% + 24px);height:1px;background:linear-gradient(to right,var(--gold),var(--gold) 50%,var(--ink-dim) 50%,var(--ink-dim));z-index:0}
+.cf-paso{padding:0 1.6rem;text-align:center;position:relative;z-index:1}
+.cf-num{width:60px;height:60px;margin:0 auto 1.8rem;border:1px solid var(--gold);background:var(--dark);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);font-style:italic;transition:all .4s}
+.cf-paso:hover .cf-num{background:var(--gold);color:var(--dark);transform:scale(1.05)}
+.cf-icon{font-size:1.4rem;margin-bottom:.9rem;opacity:.7}
+.cf-titulo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--ink);margin-bottom:.7rem}
+.cf-titulo em{color:var(--gold-light);font-style:italic}
+.cf-desc{font-size:.85rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1.2rem}
+.cf-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);padding:.3rem .8rem;border:1px solid var(--line);background:var(--gold-pale)}
+
+/* DIFERENCIAIS */
+#diferenciales{padding:8rem 6vw;background:var(--dark2)}
+.dif-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.dif-card{background:var(--dark3);border:1px solid var(--line);padding:2rem 1.8rem;position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
+.dif-card:hover{transform:translateY(-4px);border-color:var(--gold)}
+.dif-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.dif-card:hover::before{transform:scaleX(1)}
+.dif-icon{font-size:1.6rem;margin-bottom:1rem}
+.dif-titulo{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--ink);margin-bottom:.6rem;line-height:1.3}
+.dif-desc{font-size:.83rem;color:var(--ink-dim);line-height:1.7}
+
+/* COBERTURA */
+#cobertura{padding:8rem 6vw;background:var(--dark)}
+.cob-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3rem}
+.cob-text p{font-size:.9rem;color:var(--ink-mid);line-height:1.85;margin-bottom:1rem}
+.cob-cidades{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:2rem}
+.cob-cidade{display:flex;align-items:center;gap:.6rem;padding:.7rem 1rem;background:var(--dark3);border:1px solid var(--line);font-size:.82rem;color:var(--ink-mid);transition:all .3s}
+.cob-cidade:hover{border-color:var(--gold);background:var(--gold-pale)}
+.cob-cidade::before{content:'●';color:var(--gold);font-size:.6rem}
+.cob-mapa{position:relative;aspect-ratio:1;background:var(--dark3);border:1px solid var(--line);overflow:hidden}
+.cob-mapa svg{width:100%;height:100%;display:block}
+.cob-pin{animation:pinPulse 2s ease-in-out infinite}
+.cob-pin.p1{animation-delay:0s}
+.cob-pin.p2{animation-delay:.4s}
+.cob-pin.p3{animation-delay:.8s}
+.cob-pin.p4{animation-delay:1.2s}
+.cob-pin.p5{animation-delay:1.6s}
+@keyframes pinPulse{0%,100%{opacity:1;r:6}50%{opacity:.5;r:8}}
+
+/* FAQ */
+#faq{padding:8rem 6vw;background:var(--dark2)}
+.faq-list{max-width:780px;margin:3rem auto 0}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;background:none;border:none;padding:1.6rem 0;display:flex;justify-content:space-between;align-items:center;text-align:left;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:500;color:var(--ink);cursor:pointer;transition:color .3s}
+.faq-q:hover{color:var(--gold)}
+.faq-ico{width:28px;height:28px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:1rem;transition:all .3s}
+.faq-item.open .faq-ico{background:var(--gold);color:var(--dark);transform:rotate(45deg);border-color:var(--gold)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s}
+.faq-a-inner{padding:0 0 1.6rem;font-size:.85rem;color:var(--ink-mid);line-height:1.8}
+.faq-item.open .faq-a{max-height:300px}
+
+/* CTA BAND */
+.cta-band{padding:6rem 6vw;background:linear-gradient(135deg,var(--gold) 0%,#A88543 100%);text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;top:-50%;left:-15%;width:500px;height:500px;border-radius:50%;background:rgba(11,11,9,.08)}
+.cta-band::after{content:'';position:absolute;bottom:-50%;right:-15%;width:400px;height:400px;border-radius:50%;background:rgba(11,11,9,.08)}
+.cta-band-content{position:relative;z-index:2;max-width:780px;margin:0 auto}
+.cta-band h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:400;color:var(--dark);margin-bottom:1.2rem;line-height:1.15}
+.cta-band h2 em{font-style:italic}
+.cta-band p{font-size:1rem;color:var(--dark2);margin-bottom:2rem;opacity:.85;line-height:1.6}
+.cta-band-btn{display:inline-flex;align-items:center;gap:.7rem;background:var(--dark);color:var(--gold);padding:1rem 2.4rem;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;text-decoration:none;transition:all .3s}
+.cta-band-btn:hover{background:var(--dark3);transform:translateY(-2px);box-shadow:0 12px 32px rgba(11,11,9,.3)}
+
+/* COOKIE BANNER */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--dark);color:var(--ink);padding:1.2rem 6vw;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;border-top:1px solid var(--gold);transform:translateY(100%);transition:transform .5s}
+.cookie-banner.show{transform:translateY(0)}
+.cookie-text{font-size:.82rem;color:var(--ink-mid);line-height:1.5;max-width:680px}
+.cookie-text a{color:var(--gold);text-decoration:underline;cursor:pointer}
+.cookie-acts{display:flex;gap:.7rem;flex-shrink:0}
+.cookie-btn{padding:.6rem 1.4rem;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:none;transition:all .3s}
+.cookie-btn.ace{background:var(--gold);color:var(--dark)}
+.cookie-btn.ace:hover{background:var(--gold-light)}
+.cookie-btn.rec{background:transparent;color:var(--ink-mid);border:1px solid var(--line)}
+.cookie-btn.rec:hover{border-color:var(--gold);color:var(--gold)}
+
 /* MOBILE FIXES */
 @media(max-width:768px){
   /* Cavalo centralizado */
@@ -244,6 +341,15 @@ footer{background:var(--dark);border-top:1px solid var(--line);padding:2.8rem 6v
   .pg-body{grid-template-columns:1fr;gap:3rem; padding: 3rem 6vw;}
   .pg-imgs{grid-template-columns:1fr}
   .pg-img.grande{grid-column:span 1}
+  
+  /* Novas seções mobile */
+  .ps-grid{grid-template-columns:1fr;gap:2rem}
+  .ps-arrow{transform:rotate(90deg);padding:0;justify-content:center}
+  .cf-pasos{grid-template-columns:1fr;gap:2.5rem}
+  .cf-pasos::before{display:none}
+  .dif-grid{grid-template-columns:1fr}
+  .cob-grid{grid-template-columns:1fr;gap:3rem}
+  .cookie-banner{flex-direction:column;align-items:flex-start}
   
   /* Botão Voltar Bem Visível */
   .pg-back {
@@ -286,8 +392,9 @@ footer{background:var(--dark);border-top:1px solid var(--line);padding:2.8rem 6v
 <ul class="nav-links" id="nav-links">
     <li><a href="#sobre">Nosotros</a></li>
     <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#como-funciona">Cómo trabajamos</a></li>
     <li><a href="#galeria">Portafolio</a></li>
-    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
   </ul>
 </nav>
@@ -315,6 +422,69 @@ footer{background:var(--dark);border-top:1px solid var(--line);padding:2.8rem 6v
   <div class="stat r"><div class="stat-n">USP</div><div class="stat-l">Maestría — Centro de Odontología Equina, Brasil</div></div>
   <div class="stat r"><div class="stat-n">🇨🇴🇧🇷</div><div class="stat-l">Actuación internacional</div></div>
 </div>
+
+<!-- PROBLEMA / SOLUÇÃO -->
+<section id="problema">
+  <div style="text-align:center;max-width:720px;margin:0 auto">
+    <div class="tag r" style="justify-content:center;display:inline-flex">Por qué SED</div>
+    <h2 class="title r">¿Tu caballo no rinde igual?<br><em>Puede ser dental.</em></h2>
+    <p class="body-text r" style="margin:0 auto">El 70% de los problemas de masticación, sinusitis recurrente y bajo rendimiento tienen origen dental — y casi nunca son diagnosticados a tiempo.</p>
+  </div>
+
+  <div class="ps-grid">
+    <div class="ps-col problema r">
+      <h3>El problema común</h3>
+      <div class="ps-item">
+        <div class="ps-ico">!</div>
+        <div>
+          <h4>Veterinario sin especialización dental</h4>
+          <p>El profesional general no tiene equipo ni formación para diagnóstico dental equino preciso.</p>
+        </div>
+      </div>
+      <div class="ps-item">
+        <div class="ps-ico">!</div>
+        <div>
+          <h4>Diagnósticos sin radiología</h4>
+          <p>Sin imágenes de cabeza equina, problemas profundos pasan desapercibidos durante meses.</p>
+        </div>
+      </div>
+      <div class="ps-item">
+        <div class="ps-ico">!</div>
+        <div>
+          <h4>Caballo sufre en silencio</h4>
+          <p>Pérdida de peso, resistencia al freno y bajo rendimiento se atribuyen a otras causas.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ps-arrow r">→</div>
+
+    <div class="ps-col solucao r">
+      <h3>La solución SED</h3>
+      <div class="ps-item">
+        <div class="ps-ico">✓</div>
+        <div>
+          <h4>Especialista con maestría USP</h4>
+          <p>Dr. Diego Velásquez — formación específica en odontología equina en uno de los mejores centros del mundo.</p>
+        </div>
+      </div>
+      <div class="ps-item">
+        <div class="ps-ico">✓</div>
+        <div>
+          <h4>Radiología portátil en campo</h4>
+          <p>Equipamiento especializado llevado directamente al haras. Diagnóstico preciso desde la primera visita.</p>
+        </div>
+      </div>
+      <div class="ps-item">
+        <div class="ps-ico">✓</div>
+        <div>
+          <h4>Recuperación del rendimiento</h4>
+          <p>Más del 90% de los caballos atendidos recuperan masticación, peso y desempeño en pocas semanas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="sobre">
   <div class="img-frame r">
@@ -385,6 +555,80 @@ footer{background:var(--dark);border-top:1px solid var(--line);padding:2.8rem 6v
       <div class="srv-num">07</div>
       <div class="srv-name">Oroscopia</div>
       <div class="srv-desc">Examen visual detallado de la cavidad oral con equipos especializados para identificar lesiones y anomalías.</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona">
+  <div style="text-align:center;max-width:720px;margin:0 auto 1rem">
+    <div class="tag r" style="justify-content:center;display:inline-flex">Cómo trabajamos</div>
+    <h2 class="title r">Atención directa <em>en tu haras</em></h2>
+    <p class="body-text r" style="margin:0 auto">Sin traslados estresantes. Diagnóstico, tratamiento y seguimiento en el ambiente donde tu caballo se siente seguro.</p>
+  </div>
+
+  <div class="cf-pasos">
+    <div class="cf-paso r">
+      <div class="cf-num">01</div>
+      <div class="cf-icon">📞</div>
+      <div class="cf-titulo">Contacto <em>inicial</em></div>
+      <p class="cf-desc">Hablamos por WhatsApp. Cuéntanos sobre el caballo, los síntomas y su rutina. Definimos urgencia y agendamos.</p>
+      <span class="cf-tag">Respuesta en horas</span>
+    </div>
+    <div class="cf-paso r">
+      <div class="cf-num">02</div>
+      <div class="cf-icon">🐴</div>
+      <div class="cf-titulo">Visita <em>al haras</em></div>
+      <p class="cf-desc">Llegamos con equipamiento completo: oroscopio, radiología portátil e instrumental quirúrgico. Diagnóstico y tratamiento en una sola visita cuando sea posible.</p>
+      <span class="cf-tag">Todo Colombia</span>
+    </div>
+    <div class="cf-paso r">
+      <div class="cf-num">03</div>
+      <div class="cf-icon">📋</div>
+      <div class="cf-titulo">Acompañamiento <em>post-procedimiento</em></div>
+      <p class="cf-desc">Protocolo detallado de cuidados, contacto directo para dudas y revisión de evolución. Tu caballo no queda solo después del procedimiento.</p>
+      <span class="cf-tag">Soporte continuo</span>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciales">
+  <div style="text-align:center;max-width:720px;margin:0 auto">
+    <div class="tag r" style="justify-content:center;display:inline-flex">Lo que nos hace diferentes</div>
+    <h2 class="title r">No somos veterinario común.<br><em>Somos especialistas.</em></h2>
+  </div>
+
+  <div class="dif-grid">
+    <div class="dif-card r">
+      <div class="dif-icon">🎓</div>
+      <div class="dif-titulo">Maestría USP — Brasil</div>
+      <p class="dif-desc">Formación en uno de los mejores centros de odontología equina de Latinoamérica. Conocimiento que va más allá del veterinario general.</p>
+    </div>
+    <div class="dif-card r">
+      <div class="dif-icon">🚐</div>
+      <div class="dif-titulo">Atención móvil completa</div>
+      <p class="dif-desc">Llegamos con todo el equipamiento al haras. Radiología portátil, oroscopio y quirúrgico. Sin estrés de transporte para el caballo.</p>
+    </div>
+    <div class="dif-card r">
+      <div class="dif-icon">🌎</div>
+      <div class="dif-titulo">Actuación Colombia + Brasil</div>
+      <p class="dif-desc">Conocimiento internacional aplicado. Atendemos en toda Colombia con disponibilidad para casos especiales en Brasil.</p>
+    </div>
+    <div class="dif-card r">
+      <div class="dif-icon">⚡</div>
+      <div class="dif-titulo">Diagnóstico en una visita</div>
+      <p class="dif-desc">Sin idas y vueltas. Con equipamiento de última generación, diagnosticamos y tratamos en la misma visita cuando es posible.</p>
+    </div>
+    <div class="dif-card r">
+      <div class="dif-icon">📊</div>
+      <div class="dif-titulo">Historial clínico digital</div>
+      <p class="dif-desc">Cada caballo tiene su ficha completa con imágenes, procedimientos y evolución. Información siempre disponible para ti.</p>
+    </div>
+    <div class="dif-card r">
+      <div class="dif-icon">🤝</div>
+      <div class="dif-titulo">Comunicación directa</div>
+      <p class="dif-desc">Hablas directamente con el especialista. Sin intermediarios, sin escala de atención. WhatsApp con el Dr. Diego.</p>
     </div>
   </div>
 </section>
@@ -507,6 +751,100 @@ footer{background:var(--dark);border-top:1px solid var(--line);padding:2.8rem 6v
     </div>
   </div>
 </section>
+
+<!-- COBERTURA GEOGRÁFICA -->
+<section id="cobertura">
+  <div style="text-align:center;max-width:720px;margin:0 auto">
+    <div class="tag r" style="justify-content:center;display:inline-flex">Cobertura nacional</div>
+    <h2 class="title r">Llegamos a tu haras,<br><em>dondequiera que estés</em></h2>
+  </div>
+
+  <div class="cob-grid">
+    <div class="cob-text r">
+      <p>Atendemos toda Colombia con base en Bogotá. Desde haras de alto rendimiento hasta criaderos familiares — la misma calidad, el mismo equipamiento, la misma dedicación.</p>
+      <p>Para casos especiales y consultorías técnicas, también actuamos en Brasil — donde el Dr. Diego mantiene contacto directo con su centro de formación.</p>
+      <div class="cob-cidades">
+        <div class="cob-cidade">Bogotá</div>
+        <div class="cob-cidade">Medellín</div>
+        <div class="cob-cidade">Cali</div>
+        <div class="cob-cidade">Valle del Cauca</div>
+        <div class="cob-cidade">Cundinamarca</div>
+        <div class="cob-cidade">Boyacá</div>
+        <div class="cob-cidade">Antioquia</div>
+        <div class="cob-cidade">Otros · consultar</div>
+      </div>
+    </div>
+
+    <div class="cob-mapa r">
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <!-- Contorno simplificado de Colombia -->
+        <path d="M 180 60 Q 200 50, 230 70 L 260 100 Q 280 120, 290 160 L 295 200 Q 290 240, 280 280 L 260 320 Q 240 350, 200 360 L 160 350 Q 120 330, 110 290 L 100 240 Q 105 200, 115 160 L 130 110 Q 150 80, 180 60 Z" fill="rgba(191,154,82,0.06)" stroke="rgba(191,154,82,0.3)" stroke-width="1.5"/>
+        
+        <!-- Linhas pontilhadas conectando -->
+        <line x1="200" y1="160" x2="180" y2="240" stroke="rgba(191,154,82,0.2)" stroke-width="0.8" stroke-dasharray="3 3"/>
+        <line x1="200" y1="160" x2="240" y2="220" stroke="rgba(191,154,82,0.2)" stroke-width="0.8" stroke-dasharray="3 3"/>
+        <line x1="200" y1="160" x2="160" y2="180" stroke="rgba(191,154,82,0.2)" stroke-width="0.8" stroke-dasharray="3 3"/>
+        <line x1="200" y1="160" x2="170" y2="280" stroke="rgba(191,154,82,0.2)" stroke-width="0.8" stroke-dasharray="3 3"/>
+        
+        <!-- Pins -->
+        <circle class="cob-pin p1" cx="200" cy="160" r="6" fill="#BF9A52"/>
+        <circle class="cob-pin p2" cx="180" cy="240" r="6" fill="#BF9A52"/>
+        <circle class="cob-pin p3" cx="240" cy="220" r="6" fill="#BF9A52"/>
+        <circle class="cob-pin p4" cx="160" cy="180" r="6" fill="#BF9A52"/>
+        <circle class="cob-pin p5" cx="170" cy="280" r="6" fill="#BF9A52"/>
+        
+        <!-- Labels -->
+        <text x="215" y="158" fill="#D4B472" font-family="DM Mono" font-size="10" font-weight="500">Bogotá</text>
+        <text x="115" y="245" fill="#A09A8C" font-family="DM Mono" font-size="9">Medellín</text>
+        <text x="255" y="225" fill="#A09A8C" font-family="DM Mono" font-size="9">Boyacá</text>
+        <text x="90" y="185" fill="#A09A8C" font-family="DM Mono" font-size="9">Antioquia</text>
+        <text x="100" y="285" fill="#A09A8C" font-family="DM Mono" font-size="9">Cali</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div style="text-align:center;max-width:720px;margin:0 auto">
+    <div class="tag r" style="justify-content:center;display:inline-flex">Dudas frecuentes</div>
+    <h2 class="title r">Antes de <em>agendar</em>, algunas respuestas</h2>
+  </div>
+
+  <div class="faq-list r">
+    <div class="faq-item">
+      <button class="faq-q">¿Cada cuánto necesita revisión dental un caballo? <span class="faq-ico">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Lo ideal es una revisión odontológica completa cada 6–12 meses, dependiendo de la edad y uso del animal. Caballos jóvenes en crecimiento y caballos de competición requieren controles más frecuentes. Una revisión preventiva evita el 80% de los problemas dentales severos.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">¿Cómo sé si mi caballo tiene un problema dental? <span class="faq-ico">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Señales comunes: pérdida de peso sin causa aparente, resistencia al freno, masticación lenta o con caída de alimento, mal olor en la boca, secreción nasal, sinusitis recurrente o cambios en el comportamiento. Muchos signos son sutiles — por eso la revisión preventiva es fundamental.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">¿El procedimiento es estresante para el caballo? <span class="faq-ico">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">No. Trabajamos directamente en el haras, en el ambiente conocido del animal. Usamos sedación controlada y técnicas mínimamente invasivas. La mayoría de los procedimientos son rápidos y la recuperación es ágil.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">¿Atienden urgencias? <span class="faq-ico">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Sí. Para urgencias dentales — trauma, fractura, dolor agudo — tenemos disponibilidad 24h vía WhatsApp. Evaluamos el caso y, según la gravedad, vamos directamente al haras o coordinamos la atención más rápida posible.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">¿Cuál es el costo del servicio? <span class="faq-ico">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">El valor depende del procedimiento y la distancia del haras. Una revisión preventiva es muy accesible — un tratamiento quirúrgico tiene valor proporcional a su complejidad. Lo importante: cobramos por consulta efectiva, no por desplazamiento. Solicita una evaluación por WhatsApp.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-content">
+    <h2>Tu caballo merece<br><em>el mejor cuidado dental</em></h2>
+    <p>Evaluación profesional sin compromiso. Hablamos por WhatsApp y entendemos qué necesita tu caballo.</p>
+    <a href="https://wa.link/wzy3jo" class="cta-band-btn" target="_blank">
+      Solicitar evaluación →
+    </a>
+  </div>
+</div>
 
 <section id="contacto">
   <div class="tag r">Estamos aquí</div>
@@ -736,7 +1074,7 @@ footer{background:var(--dark);border-top:1px solid var(--line);padding:2.8rem 6v
 
 <footer>
   <div class="ft-logo">SED</div>
-  <div class="ft-copy">© 2024–2026 SED Specialized Equine Dentistry. Todos los derechos reservados.</div>
+  <div class="ft-copy">© 2024–2026 SED Specialized Equine Dentistry. Todos los derechos reservados.<br><span style="font-size:.7rem;opacity:.6">Desarrollado por <a href="https://www.linkedin.com/in/vinnicius-s-nogueira" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(191,154,82,0.3)">Vinnicius Soares</a></span></div>
   <div class="ft-social">
     <a href="https://www.instagram.com/sed_vet" target="_blank" title="Instagram">
       <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -747,6 +1085,17 @@ footer{background:var(--dark);border-top:1px solid var(--line);padding:2.8rem 6v
 <a href="https://wa.link/wzy3jo" class="wa" target="_blank" title="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.997 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.404A9.964 9.964 0 0011.997 22C17.522 22 22 17.523 22 12S17.522 2 11.997 2zm0 18.18a8.17 8.17 0 01-4.164-1.14l-.299-.178-3.095.872.833-3.23-.195-.313A8.17 8.17 0 013.82 12c0-4.509 3.668-8.18 8.177-8.18 4.51 0 8.18 3.671 8.18 8.18s-3.67 8.18-8.18 8.18z"/></svg>
 </a>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text">
+    🍪 Utilizamos cookies para mejorar tu experiencia de navegación. Al continuar, aceptas nuestro uso de cookies conforme a la <strong>Ley 1581 de 2012</strong> de Protección de Datos en Colombia.
+  </div>
+  <div class="cookie-acts">
+    <button class="cookie-btn rec" onclick="recCookies()">Esenciales</button>
+    <button class="cookie-btn ace" onclick="aceCookies()">Aceptar</button>
+  </div>
+</div>
 
 <script>
 const nav=document.getElementById('nav');
@@ -776,6 +1125,21 @@ function voltarInicio() {
     document.getElementById('servicios').scrollIntoView({behavior: 'smooth'});
   }, 100);
 }
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// Cookies
+function aceCookies(){ localStorage.setItem('sed_cookies','aceito'); document.getElementById('cookieBanner').classList.remove('show'); }
+function recCookies(){ localStorage.setItem('sed_cookies','esencial'); document.getElementById('cookieBanner').classList.remove('show'); }
+window.addEventListener('load',()=>{ if(!localStorage.getItem('sed_cookies')){ setTimeout(()=>document.getElementById('cookieBanner').classList.add('show'),1800); } });
 </script>
 </body>
 </html>
