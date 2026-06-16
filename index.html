@@ -5,278 +5,295 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SED | Odontología Equina Especializada · Dr. Diego Velásquez · Colombia</title>
 <meta name="description" content="SED Specialized Equine Dentistry — líderes en odontología equina en Colombia. Dr. Diego Velásquez, Maestría USP Brasil. Atención en tu haras, en todo el país.">
-<meta property="og:title" content="SED — Odontología Equina Especializada">
+<meta property="og:title" content="SED — Specialized Equine Dentistry">
 <meta property="og:description" content="El nivel más alto de cuidado dental para tu caballo. Atención en tu haras, en toda Colombia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --gold:#BF9A52;--gold-l:#D4B472;--gold-pale:rgba(191,154,82,0.12);
-  --dark:#0B0B09;--dark2:#111110;--dark3:#181816;
-  --ink:#EAE6DC;--ink-mid:#A09A8C;--ink-dim:#5A564E;
-  --line:rgba(191,154,82,0.15);
+  --azul:#2078C0;
+  --azul-d:#1A639E;
+  --azul-l:#3D8FD4;
+  --verde:#189020;
+  --verde-d:#147A1A;
+  --verde-l:#2BA833;
+  --teal:#189080;
+  --azul-pale:rgba(32,120,192,0.08);
+  --verde-pale:rgba(24,144,32,0.08);
+  --grad:linear-gradient(120deg,var(--azul) 0%,var(--teal) 50%,var(--verde) 100%);
+  --ink:#1A2B3A;
+  --ink-mid:#5B6B7A;
+  --ink-light:#8A98A6;
+  --bg:#FFFFFF;
+  --bg2:#F5F9FC;
+  --bg3:#EDF4FA;
+  --line:#E2EBF2;
+  --white:#fff;
 }
 html{scroll-behavior:smooth;}
-body{background:var(--dark);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;line-height:1.6;}
-::-webkit-scrollbar{width:4px;}
-::-webkit-scrollbar-thumb{background:var(--gold);}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-weight:400;overflow-x:hidden;line-height:1.6;}
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:var(--bg2);}
+::-webkit-scrollbar-thumb{background:var(--azul);border-radius:4px;}
 
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(36px);transition:opacity 1s cubic-bezier(0.16,1,0.3,1),transform 1s cubic-bezier(0.16,1,0.3,1);will-change:opacity,transform;}
 .reveal.visible{opacity:1;transform:none;}
-.delay-1{transition-delay:.12s;}.delay-2{transition-delay:.24s;}.delay-3{transition-delay:.36s;}.delay-4{transition-delay:.48s;}
+.delay-1{transition-delay:.12s;}.delay-2{transition-delay:.24s;}.delay-3{transition-delay:.36s;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 6vw;height:68px;display:flex;align-items:center;justify-content:space-between;transition:all .4s;}
-nav.scrolled{background:rgba(11,11,9,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);}
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;font-style:italic;color:var(--gold);text-decoration:none;letter-spacing:.02em;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 6vw;height:80px;display:flex;align-items:center;justify-content:space-between;transition:all .4s;background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);}
+nav.scrolled{height:68px;box-shadow:0 4px 30px rgba(32,120,192,0.08);background:rgba(255,255,255,0.97);}
+.nav-logo{display:flex;align-items:center;height:100%;}
+.nav-logo img{height:46px;width:auto;transition:height .4s;}
+nav.scrolled .nav-logo img{height:40px;}
 .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
-.nav-links a{color:rgba(234,230,220,.55);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:color .3s;font-weight:400;position:relative;}
-.nav-links a:not(.nav-wa)::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:1px;background:var(--gold);transition:width .4s cubic-bezier(0.16,1,0.3,1);}
+.nav-links a{color:var(--ink-mid);font-size:.83rem;letter-spacing:.02em;font-weight:500;text-decoration:none;transition:color .3s;position:relative;}
+.nav-links a:not(.nav-wa)::after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:2px;background:var(--grad);transition:width .4s cubic-bezier(0.16,1,0.3,1);border-radius:2px;}
+.nav-links a:not(.nav-wa):hover{color:var(--azul);}
 .nav-links a:not(.nav-wa):hover::after{width:100%;}
-.nav-links a:hover{color:var(--ink);}
-.nav-wa{border:1px solid var(--gold);color:var(--gold)!important;padding:.5rem 1.2rem;transition:all .3s!important;}
-.nav-wa:hover{background:var(--gold)!important;color:var(--dark)!important;}
-#menu-btn{display:none;background:none;border:none;color:var(--gold);font-size:1.6rem;cursor:pointer;}
+.nav-wa{background:var(--grad);color:#fff!important;padding:.6rem 1.4rem;border-radius:50px;font-weight:600!important;transition:all .3s!important;box-shadow:0 4px 14px rgba(32,120,192,0.25);}
+.nav-wa:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(32,120,192,0.35);}
+#menu-btn{display:none;background:none;border:none;color:var(--azul);font-size:1.6rem;cursor:pointer;}
 
 /* HERO */
-#hero{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding-top:90px;}
-.hero-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=1800&q=85') center/cover no-repeat;transform:scale(1.05);transition:transform 8s ease-out;}
-.hero-img.loaded{transform:scale(1);}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,11,9,1) 0%,rgba(11,11,9,.6) 40%,rgba(11,11,9,.15) 100%);}
-.hero-content{position:relative;z-index:2;padding:2rem 6vw 7vh;max-width:820px;}
-.hero-tag{display:inline-flex;align-items:center;gap:.6rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;opacity:0;animation:up .8s .3s forwards;}
-.hero-tag::before{content:'';width:32px;height:1px;background:var(--gold);}
-.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,6vw,5rem);font-weight:400;line-height:1.06;color:var(--ink);margin-bottom:1.4rem;opacity:0;animation:up .9s .5s forwards;}
-.hero-h1 em{font-style:italic;color:var(--gold);}
-.hero-p{font-size:1rem;color:var(--ink-mid);max-width:520px;line-height:1.75;margin-bottom:2rem;opacity:0;animation:up .8s .7s forwards;}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:up .8s .9s forwards;}
-.hero-scroll{position:absolute;right:6vw;bottom:2.5rem;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);display:flex;align-items:center;gap:.5rem;z-index:2;}
-.hero-scroll::after{content:'';width:1px;height:40px;background:var(--gold);display:block;}
-.hero-badge{position:absolute;top:50%;right:6vw;transform:translateY(-50%);display:flex;flex-direction:column;gap:1rem;z-index:2;opacity:0;animation:up .8s 1.1s forwards;}
-.hb{background:rgba(11,11,9,.82);backdrop-filter:blur(16px);border:1px solid var(--line);padding:.9rem 1.2rem;display:flex;align-items:center;gap:.8rem;min-width:180px;animation:hbFloat 7s ease-in-out infinite;transition:border-color .4s;}
-.hb:hover{border-color:var(--gold);}
-.hb:nth-child(2){animation-delay:3.5s;}
-@keyframes hbFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
-.hb-icon{font-size:1.2rem;flex-shrink:0;}
-.hb-label{font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-dim);}
-.hb-val{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold);font-style:italic;}
+#hero{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 6vw 60px;background:linear-gradient(160deg,#F5F9FC 0%,#EDF4FA 55%,#E8F3EC 100%);}
+.hero-deco{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+.hero-blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;}
+.hero-blob.b1{width:500px;height:500px;background:radial-gradient(circle,rgba(32,120,192,0.25),transparent 70%);top:-150px;right:-100px;animation:float1 12s ease-in-out infinite;}
+.hero-blob.b2{width:400px;height:400px;background:radial-gradient(circle,rgba(24,144,32,0.2),transparent 70%);bottom:-120px;left:-80px;animation:float2 14s ease-in-out infinite;}
+@keyframes float1{0%,100%{transform:translate(0,0);}50%{transform:translate(-40px,40px);}}
+@keyframes float2{0%,100%{transform:translate(0,0);}50%{transform:translate(40px,-30px);}}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 0.9fr;gap:4rem;align-items:center;width:100%;max-width:1280px;margin:0 auto;}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1px solid var(--line);padding:.5rem 1.1rem;border-radius:50px;font-size:.75rem;font-weight:600;color:var(--azul);margin-bottom:1.8rem;box-shadow:0 2px 12px rgba(32,120,192,0.08);opacity:0;animation:up .8s .2s forwards;}
+.hero-badge span{width:7px;height:7px;border-radius:50%;background:var(--verde);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+.hero-h1{font-family:'Poppins',sans-serif;font-size:clamp(2.4rem,4.5vw,4rem);font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:1.5rem;letter-spacing:-0.02em;opacity:0;animation:up .9s .4s forwards;}
+.hero-h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-p{font-size:1.08rem;color:var(--ink-mid);max-width:480px;line-height:1.75;margin-bottom:2.2rem;opacity:0;animation:up .8s .6s forwards;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;opacity:0;animation:up .8s .8s forwards;}
+.hero-stats{display:flex;gap:2.5rem;opacity:0;animation:up .8s 1s forwards;}
+.hero-stat-n{font-family:'Poppins',sans-serif;font-size:1.9rem;font-weight:700;color:var(--azul);line-height:1;}
+.hero-stat-n.v{color:var(--verde);}
+.hero-stat-l{font-size:.78rem;color:var(--ink-light);margin-top:.3rem;}
+.hero-visual{position:relative;opacity:0;animation:fadeScale 1.2s .6s forwards;}
+.hero-img-main{width:100%;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(32,120,192,0.4);position:relative;aspect-ratio:4/5;}
+.hero-img-main img{width:100%;height:100%;object-fit:cover;}
+.hero-logo-float{position:absolute;bottom:-24px;left:-24px;background:#fff;border-radius:18px;padding:1.2rem 1.5rem;box-shadow:0 20px 50px -15px rgba(32,120,192,0.3);display:flex;align-items:center;gap:1rem;animation:floatY 5s ease-in-out infinite;}
+.hero-logo-float img{height:48px;}
 @keyframes up{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeScale{from{opacity:0;transform:scale(0.95);}to{opacity:1;transform:scale(1);}}
+@keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
 
-/* BTN */
-.btn-gold{background:var(--gold);color:var(--dark);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:.9rem 1.8rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .4s cubic-bezier(0.16,1,0.3,1);font-weight:500;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;position:relative;overflow:hidden;}
-.btn-gold::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);transition:left .6s;}
-.btn-gold:hover::before{left:130%;}
-.btn-gold:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 12px 30px rgba(191,154,82,.3);}
-.btn-outline{background:transparent;color:var(--gold);border:1px solid var(--gold);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:.9rem 1.8rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .3s;font-family:'DM Sans',sans-serif;}
-.btn-outline:hover{background:var(--gold-pale);}
+/* BOTÕES */
+.btn-grad{background:var(--grad);color:#fff;font-size:.9rem;font-weight:600;padding:1rem 2rem;border-radius:50px;text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;transition:all .4s cubic-bezier(0.16,1,0.3,1);border:none;cursor:pointer;box-shadow:0 8px 24px rgba(32,120,192,0.3);position:relative;overflow:hidden;}
+.btn-grad::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);transition:left .6s;}
+.btn-grad:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(32,120,192,0.4);}
+.btn-grad:hover::before{left:140%;}
+.btn-ghost{background:#fff;color:var(--azul);font-size:.9rem;font-weight:600;padding:1rem 2rem;border-radius:50px;text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;transition:all .4s;border:1.5px solid var(--line);cursor:pointer;}
+.btn-ghost:hover{border-color:var(--azul);background:var(--azul-pale);transform:translateY(-2px);}
 
 /* SEÇÕES */
-section{padding:7rem 6vw;position:relative;}
-.s-tag{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem;}
-.s-tag::before{content:'';width:28px;height:1px;background:var(--gold);}
-.s-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.2vw,3.4rem);font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:1.2rem;}
-.s-title em{font-style:italic;color:var(--gold);}
-.s-sub{font-size:.95rem;color:var(--ink-mid);max-width:580px;line-height:1.75;}
+section{padding:6.5rem 6vw;position:relative;}
+.s-head{text-align:center;max-width:680px;margin:0 auto 4rem;}
+.s-tag{display:inline-flex;align-items:center;gap:.5rem;background:var(--azul-pale);color:var(--azul);font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:.45rem 1.1rem;border-radius:50px;margin-bottom:1.2rem;}
+.s-title{font-family:'Poppins',sans-serif;font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;color:var(--ink);margin-bottom:1rem;letter-spacing:-0.02em;}
+.s-title .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.s-sub{font-size:1.02rem;color:var(--ink-mid);line-height:1.7;}
 
 /* SINTOMAS */
-#sintomas{background:var(--dark);}
-.sint-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:4rem;}
-.sint-card{background:var(--dark2);padding:2.5rem 2rem;transition:all .5s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;}
-.sint-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s;}
-.sint-card:hover{background:var(--dark3);transform:translateY(-6px);box-shadow:0 24px 48px -20px rgba(191,154,82,0.25);}
-.sint-card:hover::after{transform:scaleX(1);}
-.sint-icon{width:52px;height:52px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.4rem;transition:border-color .4s;}
-.sint-card:hover .sint-icon{border-color:var(--gold);}
-.sint-titulo{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--ink);margin-bottom:.7rem;font-weight:500;}
-.sint-desc{font-size:.85rem;color:var(--ink-mid);line-height:1.7;}
-.sint-cta{margin-top:3.5rem;padding:2rem 2.5rem;background:var(--gold-pale);border:1px solid var(--gold);display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
-.sint-cta p{font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:var(--ink);}
-.sint-cta strong{color:var(--gold);font-style:normal;}
+#sintomas{background:var(--bg);}
+.sint-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+.sint-card{background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:2.2rem 1.8rem;transition:all .5s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;}
+.sint-card:hover{transform:translateY(-8px);box-shadow:0 24px 50px -20px rgba(32,120,192,0.25);border-color:transparent;background:#fff;}
+.sint-icon{width:56px;height:56px;border-radius:16px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.4rem;box-shadow:0 8px 20px rgba(32,120,192,0.25);}
+.sint-titulo{font-family:'Poppins',sans-serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:.6rem;}
+.sint-desc{font-size:.88rem;color:var(--ink-mid);line-height:1.65;}
+.sint-cta{margin-top:3rem;background:var(--grad);border-radius:24px;padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;position:relative;overflow:hidden;}
+.sint-cta::before{content:'';position:absolute;width:300px;height:300px;background:rgba(255,255,255,0.1);border-radius:50%;top:-150px;right:-50px;}
+.sint-cta-text{position:relative;z-index:1;}
+.sint-cta h3{font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:600;color:#fff;margin-bottom:.4rem;}
+.sint-cta p{color:rgba(255,255,255,0.9);font-size:.95rem;}
+.btn-white{background:#fff;color:var(--azul);font-size:.9rem;font-weight:700;padding:1rem 2rem;border-radius:50px;text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;transition:all .3s;position:relative;z-index:1;white-space:nowrap;}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,0.15);}
 
-/* SERVIÇOS */
-#servicios{background:var(--dark2);}
-.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:4rem;}
-.srv-card{background:var(--dark2);padding:2.5rem 2rem;cursor:pointer;transition:all .5s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;}
-.srv-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-l));transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(0.16,1,0.3,1);}
-.srv-card:hover{background:var(--dark3);transform:translateY(-6px);box-shadow:0 24px 48px -20px rgba(191,154,82,0.3);}
-.srv-card:hover::after{transform:scaleX(1);}
-.srv-num{font-family:'Playfair Display',serif;font-size:.85rem;color:var(--gold);font-style:italic;margin-bottom:1rem;}
-.srv-name{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--ink);margin-bottom:.8rem;font-weight:500;line-height:1.3;}
-.srv-desc{font-size:.85rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1.2rem;}
-.srv-saibamais{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500;transition:gap .3s;}
-.srv-card:hover .srv-saibamais{gap:.9rem;}
+/* SERVICIOS */
+#servicios{background:var(--bg2);}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.srv-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:2.3rem 2rem;cursor:pointer;transition:all .5s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;}
+.srv-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(0.16,1,0.3,1);}
+.srv-card:hover{transform:translateY(-8px);box-shadow:0 28px 56px -22px rgba(32,120,192,0.3);}
+.srv-card:hover::before{transform:scaleX(1);}
+.srv-num{font-family:'Poppins',sans-serif;font-size:2.2rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;opacity:.25;line-height:1;margin-bottom:.8rem;}
+.srv-name{font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:600;color:var(--ink);margin-bottom:.8rem;line-height:1.3;}
+.srv-desc{font-size:.88rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1.3rem;}
+.srv-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:600;color:var(--azul);transition:gap .3s;}
+.srv-card:hover .srv-link{gap:.85rem;}
 
 /* MODAL */
-.modal-bg{position:fixed;inset:0;background:rgba(11,11,9,.92);backdrop-filter:blur(12px);z-index:200;opacity:0;pointer-events:none;transition:opacity .4s;display:flex;align-items:center;justify-content:center;padding:2rem;}
+.modal-bg{position:fixed;inset:0;background:rgba(26,43,58,0.6);backdrop-filter:blur(8px);z-index:200;opacity:0;pointer-events:none;transition:opacity .4s;display:flex;align-items:center;justify-content:center;padding:2rem;}
 .modal-bg.open{opacity:1;pointer-events:all;}
-.modal{background:var(--dark2);border:1px solid var(--line);max-width:720px;width:100%;max-height:85vh;overflow-y:auto;position:relative;transform:translateY(20px);transition:transform .4s cubic-bezier(0.22,1,0.36,1);}
-.modal-bg.open .modal{transform:translateY(0);}
-.modal-hero{height:220px;background-size:cover;background-position:center;position:relative;}
-.modal-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--dark2),transparent);}
-.modal-close{position:absolute;top:1rem;right:1rem;z-index:2;background:rgba(11,11,9,.7);border:1px solid var(--line);width:36px;height:36px;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .3s;}
-.modal-close:hover{background:var(--gold);color:var(--dark);border-color:var(--gold);}
-.modal-body{padding:2.5rem;}
-.modal-tag{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;}
-.modal-title{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--ink);margin-bottom:1.5rem;line-height:1.2;font-weight:400;}
-.modal-title em{font-style:italic;color:var(--gold);}
-.modal-section{margin-bottom:1.5rem;}
-.modal-section h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);font-style:italic;margin-bottom:.7rem;font-weight:400;}
-.modal-section p{font-size:.9rem;color:var(--ink-mid);line-height:1.8;margin-bottom:.6rem;}
-.modal-section p strong{color:var(--ink);font-weight:500;}
-.modal-divider{height:1px;background:var(--line);margin:1.5rem 0;}
-.modal-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;}
+.modal{background:#fff;border-radius:24px;max-width:680px;width:100%;max-height:88vh;overflow-y:auto;position:relative;transform:translateY(24px) scale(0.98);transition:transform .4s cubic-bezier(0.16,1,0.3,1);box-shadow:0 40px 100px -30px rgba(26,43,58,0.5);}
+.modal-bg.open .modal{transform:none;}
+.modal-hero{height:180px;background:var(--grad);position:relative;display:flex;align-items:flex-end;padding:1.8rem 2.2rem;}
+.modal-hero-icon{position:absolute;top:1.5rem;left:2.2rem;width:60px;height:60px;border-radius:16px;background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;font-size:1.8rem;}
+.modal-num{font-family:'Poppins',sans-serif;font-size:5rem;font-weight:700;color:rgba(255,255,255,0.25);position:absolute;bottom:0;right:2rem;line-height:1;}
+.modal-close{position:absolute;top:1.5rem;right:1.5rem;z-index:3;background:rgba(255,255,255,0.95);border:none;width:38px;height:38px;border-radius:50%;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .3s;}
+.modal-close:hover{background:#fff;transform:rotate(90deg);}
+.modal-body{padding:2.2rem;}
+.modal-tag{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--verde);margin-bottom:.6rem;}
+.modal-title{font-family:'Poppins',sans-serif;font-size:1.6rem;font-weight:700;color:var(--ink);margin-bottom:1.5rem;line-height:1.2;}
+.modal-section{margin-bottom:1.3rem;}
+.modal-section h3{font-family:'Poppins',sans-serif;font-size:.95rem;font-weight:600;color:var(--azul);margin-bottom:.5rem;}
+.modal-section p{font-size:.9rem;color:var(--ink-mid);line-height:1.75;margin-bottom:.5rem;}
+.modal-section p strong{color:var(--ink);font-weight:600;}
+.modal-divider{height:1px;background:var(--line);margin:1.3rem 0;}
+.modal-cta{margin-top:1.8rem;}
 
 /* COMO FUNCIONA */
-#como{background:var(--dark);}
-.como-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:4rem;position:relative;}
-.como-grid::before{content:'';position:absolute;top:44px;left:calc(100%/6);right:calc(100%/6);height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
-.como-step{text-align:center;padding:0 2.5rem;}
-.como-num{width:88px;height:88px;border:1px solid var(--gold);background:var(--dark);display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;font-family:'Playfair Display',serif;font-size:2rem;font-style:italic;color:var(--gold);transition:all .5s cubic-bezier(0.16,1,0.3,1);position:relative;z-index:1;}
-.como-step:hover .como-num{background:var(--gold);color:var(--dark);box-shadow:0 0 40px rgba(191,154,82,0.4);transform:scale(1.06);}
-.como-titulo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--ink);margin-bottom:.8rem;font-weight:400;}
-.como-titulo em{font-style:italic;color:var(--gold);}
-.como-desc{font-size:.88rem;color:var(--ink-mid);line-height:1.75;}
+#como{background:var(--bg);}
+.como-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;position:relative;}
+.como-step{text-align:center;position:relative;}
+.como-num{width:90px;height:90px;border-radius:50%;background:#fff;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;margin:0 auto 1.8rem;font-family:'Poppins',sans-serif;font-size:2rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;transition:all .5s cubic-bezier(0.16,1,0.3,1);position:relative;z-index:1;}
+.como-step:hover .como-num{transform:scale(1.08);box-shadow:0 12px 30px rgba(32,120,192,0.2);}
+.como-titulo{font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:600;color:var(--ink);margin-bottom:.7rem;}
+.como-desc{font-size:.9rem;color:var(--ink-mid);line-height:1.7;max-width:280px;margin:0 auto;}
 
-/* SOBRE + CERTIFICADOS */
-#sobre{background:var(--dark2);}
-.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
-.sobre-imgs{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:1rem;}
-.sobre-img-main{grid-column:1/-1;height:320px;overflow:hidden;position:relative;}
-.sobre-img-main img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .8s;}
-.sobre-img-main:hover img{transform:scale(1.04);}
-.sobre-img-sm{height:180px;overflow:hidden;}
-.sobre-img-sm img{width:100%;height:100%;object-fit:cover;transition:transform .8s;}
-.sobre-img-sm:hover img{transform:scale(1.04);}
-.sobre-img-frame{position:relative;}
-.sobre-img-frame::after{content:'';position:absolute;inset:0;border:1px solid var(--gold);pointer-events:none;}
-.sobre-bio{font-size:.95rem;color:var(--ink-mid);line-height:1.8;margin-bottom:1rem;}
-.sobre-bio strong{color:var(--ink);font-weight:500;}
-.sobre-cred{margin-top:1.5rem;padding:1.4rem 1.6rem;background:var(--dark);border-left:2px solid var(--gold);}
-.sobre-cred-label{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;}
-.sobre-cred p{font-size:.87rem;color:var(--ink-mid);line-height:1.7;}
-.sobre-cred strong{color:var(--ink);font-weight:500;}
-.cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem;}
-.cert{background:var(--dark);border:1px solid var(--line);padding:1.2rem 1.4rem;transition:all .4s cubic-bezier(0.16,1,0.3,1);}
-.cert:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 16px 36px -16px rgba(191,154,82,0.3);}
-.cert-badge{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);background:var(--gold-pale);padding:.25rem .6rem;border:1px solid var(--gold);display:inline-block;margin-bottom:.6rem;}
-.cert-name{font-size:.87rem;color:var(--ink);line-height:1.5;margin-bottom:.3rem;font-weight:500;}
-.cert-inst{font-size:.78rem;color:var(--ink-dim);}
+/* SOBRE */
+#sobre{background:var(--bg2);}
+.sobre-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:4rem;align-items:center;max-width:1200px;margin:0 auto;}
+.sobre-img-wrap{position:relative;}
+.sobre-img{border-radius:24px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 30px 70px -28px rgba(32,120,192,0.35);}
+.sobre-img img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.sobre-badge{position:absolute;top:1.5rem;right:-20px;background:#fff;border-radius:16px;padding:1rem 1.4rem;box-shadow:0 16px 40px -12px rgba(32,120,192,0.3);text-align:center;}
+.sobre-badge-n{font-family:'Poppins',sans-serif;font-size:1.6rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
+.sobre-badge-l{font-size:.68rem;color:var(--ink-light);margin-top:.2rem;}
+.sobre-bio{font-size:1rem;color:var(--ink-mid);line-height:1.8;margin-bottom:1rem;}
+.sobre-bio strong{color:var(--ink);font-weight:600;}
+.sobre-cred{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.4rem 1.6rem;margin-top:1.5rem;border-left:4px solid var(--azul);}
+.sobre-cred-label{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--azul);margin-bottom:.5rem;}
+.sobre-cred p{font-size:.88rem;color:var(--ink-mid);line-height:1.7;}
+.sobre-cred strong{color:var(--ink);font-weight:600;}
+.cert-row{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem;}
+.cert{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.3rem;transition:all .4s;}
+.cert:hover{border-color:var(--verde);transform:translateY(-4px);box-shadow:0 14px 30px -14px rgba(24,144,32,0.25);}
+.cert-badge{display:inline-block;font-size:.62rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--verde);background:var(--verde-pale);padding:.25rem .6rem;border-radius:6px;margin-bottom:.6rem;}
+.cert-name{font-size:.85rem;font-weight:600;color:var(--ink);line-height:1.4;margin-bottom:.3rem;}
+.cert-inst{font-size:.76rem;color:var(--ink-light);}
 
 /* GALERIA */
-#galeria{background:var(--dark);padding:0;}
-.gal-header{padding:5rem 6vw 3rem;}
-.gal-masonry{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:4px;}
-.gal-item{overflow:hidden;position:relative;}
-.gal-item:first-child{grid-column:1/3;grid-row:1/3;}
-.gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s cubic-bezier(0.16,1,0.3,1),filter .6s;min-height:200px;filter:brightness(0.92);}
-.gal-item:first-child img{min-height:400px;}
-.gal-item:hover img{transform:scale(1.07);filter:brightness(1.05);}
-.gal-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,11,9,.7) 0%,transparent 50%);opacity:0;transition:opacity .4s;}
+#galeria{background:var(--bg);}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:200px;gap:1rem;}
+.gal-item{overflow:hidden;position:relative;border-radius:18px;}
+.gal-item:first-child{grid-column:span 2;grid-row:span 2;}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s cubic-bezier(0.16,1,0.3,1);}
+.gal-item:hover img{transform:scale(1.08);}
+.gal-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(32,120,192,0.85),transparent 55%);opacity:0;transition:opacity .4s;display:flex;align-items:flex-end;padding:1.4rem;}
 .gal-item:hover .gal-overlay{opacity:1;}
-.gal-label{position:absolute;bottom:1rem;left:1rem;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);opacity:0;transform:translateY(8px);transition:all .4s;}
-.gal-item:hover .gal-label{opacity:1;transform:translateY(0);}
+.gal-label{color:#fff;font-weight:600;font-size:.9rem;transform:translateY(10px);transition:transform .4s;}
+.gal-item:hover .gal-label{transform:translateY(0);}
+
+/* CTA */
+.cta-band{background:var(--grad);padding:5rem 6vw;text-align:center;position:relative;overflow:hidden;}
+.cta-band::before,.cta-band::after{content:'';position:absolute;border-radius:50%;background:rgba(255,255,255,0.08);}
+.cta-band::before{width:400px;height:400px;top:-200px;left:-100px;}
+.cta-band::after{width:300px;height:300px;bottom:-150px;right:-50px;}
+.cta-content{position:relative;z-index:1;max-width:680px;margin:0 auto;}
+.cta-content h2{font-family:'Poppins',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:#fff;margin-bottom:1rem;line-height:1.15;}
+.cta-content p{font-size:1.05rem;color:rgba(255,255,255,0.9);margin-bottom:2rem;line-height:1.6;}
 
 /* CONTATO */
-#contacto{background:var(--dark2);}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:4rem;align-items:start;}
-.ci{display:flex;align-items:flex-start;gap:1.2rem;padding:1.4rem 1.6rem;background:var(--dark);border:1px solid var(--line);margin-bottom:1rem;transition:all .3s;}
-.ci:hover{border-color:var(--gold);transform:translateX(4px);}
-.ci-icon{width:40px;height:40px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0;font-size:.95rem;}
-.ci-label{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
-.ci-val{font-size:.9rem;color:var(--ink);line-height:1.55;}
-.ci-val a{color:var(--gold);text-decoration:none;}
-.contact-img{height:100%;min-height:400px;overflow:hidden;position:relative;}
-.contact-img img{width:100%;height:100%;object-fit:cover;}
-.contact-img::after{content:'';position:absolute;inset:0;border:1px solid var(--gold);pointer-events:none;}
+#contacto{background:var(--bg2);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1100px;margin:0 auto;align-items:center;}
+.ci{display:flex;align-items:center;gap:1.2rem;padding:1.4rem 1.6rem;background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:1rem;transition:all .4s;}
+.ci:hover{transform:translateX(6px);border-color:var(--azul);box-shadow:0 12px 30px -14px rgba(32,120,192,0.2);}
+.ci-icon{width:48px;height:48px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;flex-shrink:0;}
+.ci-label{font-size:.7rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-light);margin-bottom:.3rem;}
+.ci-val{font-size:.95rem;color:var(--ink);font-weight:500;}
+.ci-val a{color:var(--azul);text-decoration:none;}
+.contact-card{background:var(--grad);border-radius:24px;padding:3rem;color:#fff;position:relative;overflow:hidden;}
+.contact-card::before{content:'';position:absolute;width:250px;height:250px;background:rgba(255,255,255,0.1);border-radius:50%;top:-100px;right:-80px;}
+.contact-card-logo{height:54px;margin-bottom:1.5rem;filter:brightness(0) invert(1);position:relative;z-index:1;}
+.contact-card h3{font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:600;margin-bottom:1rem;position:relative;z-index:1;}
+.contact-card p{color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:1.8rem;position:relative;z-index:1;font-size:.95rem;}
 
-/* CTA BAND */
-.cta-band{padding:6rem 6vw;background:linear-gradient(135deg,var(--gold) 0%,#8E7236 100%);text-align:center;position:relative;overflow:hidden;}
-.cta-band::before,.cta-band::after{content:'';position:absolute;border-radius:50%;background:rgba(255,255,255,.06);}
-.cta-band::before{width:500px;height:500px;top:-50%;left:-10%;}
-.cta-band::after{width:400px;height:400px;bottom:-50%;right:-10%;}
-.cta-band-content{position:relative;z-index:2;max-width:700px;margin:0 auto;}
-.cta-band h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:400;color:var(--dark);margin-bottom:1rem;line-height:1.15;}
-.cta-band h2 em{font-style:italic;}
-.cta-band p{font-size:1rem;color:rgba(11,11,9,.8);margin-bottom:2rem;line-height:1.7;}
-.btn-dark{background:var(--dark);color:var(--gold);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:.9rem 2rem;text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;transition:all .3s;font-family:'DM Sans',sans-serif;font-weight:500;}
-.btn-dark:hover{background:var(--dark2);transform:translateY(-2px);}
+/* FOOTER */
+footer{background:var(--ink);padding:3.5rem 6vw 2rem;color:#fff;}
+.footer-top{display:flex;justify-content:space-between;gap:3rem;flex-wrap:wrap;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,0.1);}
+.footer-logo{height:50px;margin-bottom:1rem;filter:brightness(0) invert(1);}
+.footer-about{max-width:320px;color:rgba(255,255,255,0.6);font-size:.88rem;line-height:1.7;}
+.footer-col h4{font-family:'Poppins',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.2rem;color:rgba(255,255,255,0.9);}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:.7rem;}
+.footer-col a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:.88rem;transition:color .3s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{padding-top:1.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.8rem;color:rgba(255,255,255,0.5);}
+.footer-bottom a{color:rgba(255,255,255,0.5);text-decoration:none;}
+.footer-bottom a:hover{color:#fff;}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;right:28px;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:99;text-decoration:none;box-shadow:0 8px 28px rgba(37,211,102,0.45);transition:all .3s;animation:waPulse 3s ease-in-out infinite;}
+.wa-float:hover{transform:scale(1.1);}
+.wa-float svg{width:30px;height:30px;color:#fff;}
+@keyframes waPulse{0%,100%{box-shadow:0 8px 28px rgba(37,211,102,0.45);}50%{box-shadow:0 8px 28px rgba(37,211,102,0.45),0 0 0 14px rgba(37,211,102,0.07);}}
 
 /* COOKIE */
-.cookie{position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--dark2);border-top:2px solid var(--gold);padding:1.2rem 6vw;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;transform:translateY(100%);transition:transform .5s cubic-bezier(0.22,1,0.36,1);}
+.cookie{position:fixed;bottom:0;left:0;right:0;z-index:300;background:#fff;border-top:3px solid var(--azul);padding:1.3rem 6vw;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;transform:translateY(100%);transition:transform .5s cubic-bezier(0.16,1,0.3,1);box-shadow:0 -10px 40px rgba(32,120,192,0.1);}
 .cookie.show{transform:translateY(0);}
-.cookie-text{font-size:.85rem;color:var(--ink-mid);max-width:700px;line-height:1.5;}
-.cookie-text a{color:var(--gold);cursor:pointer;text-decoration:underline;}
+.cookie-text{font-size:.86rem;color:var(--ink-mid);max-width:680px;line-height:1.5;}
+.cookie-text a{color:var(--azul);cursor:pointer;text-decoration:underline;font-weight:500;}
 .cookie-btns{display:flex;gap:.8rem;flex-shrink:0;}
-.ck-btn{padding:.6rem 1.4rem;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;font-weight:500;transition:all .3s;}
-.ck-aceitar{background:var(--gold);color:var(--dark);}
-.ck-recusar{background:transparent;color:var(--ink-mid);border:1px solid var(--line);}
+.ck-btn{padding:.7rem 1.5rem;font-size:.82rem;font-weight:600;border-radius:50px;cursor:pointer;border:none;transition:all .3s;}
+.ck-ok{background:var(--grad);color:#fff;}
+.ck-ok:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(32,120,192,0.3);}
+.ck-no{background:var(--bg2);color:var(--ink-mid);border:1px solid var(--line);}
 
 /* MODAL PRIVACIDADE */
-.priv-bg{position:fixed;inset:0;background:rgba(11,11,9,.9);backdrop-filter:blur(10px);z-index:400;opacity:0;pointer-events:none;transition:opacity .3s;display:flex;align-items:center;justify-content:center;padding:2rem;}
+.priv-bg{position:fixed;inset:0;background:rgba(26,43,58,0.6);backdrop-filter:blur(8px);z-index:400;opacity:0;pointer-events:none;transition:opacity .3s;display:flex;align-items:center;justify-content:center;padding:2rem;}
 .priv-bg.open{opacity:1;pointer-events:all;}
-.priv-box{background:var(--dark2);border:1px solid var(--line);max-width:680px;width:100%;max-height:85vh;overflow-y:auto;padding:3rem;position:relative;}
-.priv-close{position:absolute;top:1rem;right:1rem;background:none;border:1px solid var(--line);color:var(--ink);width:32px;height:32px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .3s;}
-.priv-close:hover{background:var(--gold);color:var(--dark);border-color:var(--gold);}
-.priv-box h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--ink);margin-bottom:.5rem;}
-.priv-date{font-size:.75rem;color:var(--ink-dim);letter-spacing:.1em;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--line);}
-.priv-box h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold);font-style:italic;margin:1.5rem 0 .6rem;}
+.priv-box{background:#fff;border-radius:24px;max-width:680px;width:100%;max-height:85vh;overflow-y:auto;padding:2.8rem;position:relative;}
+.priv-close{position:absolute;top:1.3rem;right:1.3rem;background:var(--bg2);border:none;width:36px;height:36px;border-radius:50%;color:var(--ink);cursor:pointer;font-size:1rem;transition:all .3s;}
+.priv-close:hover{background:var(--azul);color:#fff;transform:rotate(90deg);}
+.priv-box h2{font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;}
+.priv-date{font-size:.78rem;color:var(--ink-light);margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--line);}
+.priv-box h3{font-family:'Poppins',sans-serif;font-size:.95rem;font-weight:600;color:var(--azul);margin:1.4rem 0 .5rem;}
 .priv-box p,.priv-box li{font-size:.88rem;color:var(--ink-mid);line-height:1.75;margin-bottom:.5rem;}
 .priv-box ul{padding-left:1.2rem;}
 .priv-box strong{color:var(--ink);}
 
-/* FOOTER */
-footer{background:var(--dark);padding:3.5rem 6vw 2rem;border-top:1px solid var(--line);}
-.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;padding-bottom:2rem;border-bottom:1px solid var(--line);}
-.footer-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--gold);margin-bottom:.6rem;}
-.footer-sub{font-size:.82rem;color:var(--ink-dim);max-width:320px;line-height:1.6;}
-.footer-col h4{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:500;}
-.footer-col ul{list-style:none;}
-.footer-col li{margin-bottom:.6rem;}
-.footer-col a{color:var(--ink-dim);text-decoration:none;font-size:.85rem;transition:color .2s;}
-.footer-col a:hover{color:var(--gold);}
-.footer-bottom{padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.75rem;color:var(--ink-dim);}
-.footer-bottom a{color:var(--ink-dim);text-decoration:none;transition:color .2s;}
-.footer-bottom a:hover{color:var(--gold);}
-
-/* WA FLOAT */
-.wa-float{position:fixed;bottom:28px;right:28px;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:99;text-decoration:none;box-shadow:0 6px 24px rgba(37,211,102,.4);transition:all .3s;animation:waPulse 3s ease-in-out infinite;}
-@keyframes waPulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.4);}50%{box-shadow:0 6px 24px rgba(37,211,102,.4),0 0 0 12px rgba(37,211,102,0.08);}}
-.wa-float:hover{transform:scale(1.1);}
-.wa-float svg{width:28px;height:28px;color:#fff;}
-
 /* RESPONSIVO */
 @media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:3rem;}
+  .hero-visual{max-width:420px;margin:0 auto;}
   .sint-grid{grid-template-columns:repeat(2,1fr);}
   .srv-grid{grid-template-columns:repeat(2,1fr);}
-  .gal-masonry{grid-template-columns:repeat(2,1fr);}
-  .gal-item:first-child{grid-column:auto;grid-row:auto;}
+  .sobre-grid{grid-template-columns:1fr;gap:3rem;}
+  .sobre-img{max-width:380px;margin:0 auto;}
+  .gal-grid{grid-template-columns:repeat(2,1fr);}
+  .gal-item:first-child{grid-column:span 2;}
 }
 @media(max-width:820px){
-  nav{padding:0 5vw;}
-  .nav-links{position:fixed;top:68px;left:0;right:0;background:rgba(11,11,9,.98);backdrop-filter:blur(20px);flex-direction:column;padding:2rem;gap:1.5rem;transform:translateY(-150%);transition:transform .4s;border-bottom:1px solid var(--line);}
+  nav{padding:0 5vw;height:70px;}
+  .nav-links{position:fixed;top:70px;left:0;right:0;background:#fff;flex-direction:column;padding:2rem;gap:1.5rem;transform:translateY(-150%);transition:transform .4s;box-shadow:0 10px 30px rgba(32,120,192,0.1);}
   .nav-links.open{transform:translateY(0);}
   #menu-btn{display:block;}
-  .hero-badge{display:none;}
-  .sobre-grid{grid-template-columns:1fr;}
+  .como-grid{grid-template-columns:1fr;gap:2.5rem;}
   .contact-grid{grid-template-columns:1fr;}
-  .contact-img{min-height:280px;}
-  .como-grid{grid-template-columns:1fr;gap:3rem;}
-  .como-grid::before{display:none;}
   .footer-top{flex-direction:column;}
-  section{padding:5rem 5vw;}
-  .cookie{flex-direction:column;align-items:flex-start;}
+  section{padding:4.5rem 5vw;}
+  .sint-cta,.contact-card{padding:2rem;}
 }
 @media(max-width:560px){
-  .hero-h1{font-size:2.4rem;}
+  .hero-h1{font-size:2rem;}
+  .hero-stats{gap:1.5rem;}
+  .sint-grid,.srv-grid{grid-template-columns:1fr;}
+  .cert-row{grid-template-columns:1fr;}
+  .gal-grid{grid-template-columns:1fr;grid-auto-rows:220px;}
+  .gal-item:first-child{grid-column:span 1;grid-row:span 1;}
   .hero-btns{flex-direction:column;}
-  .sint-grid,.srv-grid,.gal-masonry{grid-template-columns:1fr;}
-  .cert-grid{grid-template-columns:1fr;}
-  .sobre-imgs{grid-template-columns:1fr;}
-  .sobre-img-main{height:240px;}
-  .sobre-img-sm{display:none;}
+  .hero-logo-float{left:50%;transform:translateX(-50%);bottom:-30px;}
 }
 </style>
 </head>
@@ -284,7 +301,7 @@ footer{background:var(--dark);padding:3.5rem 6vw 2rem;border-top:1px solid var(-
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-logo">SED · Equine Dentistry</a>
+  <a href="#" class="nav-logo"><img src="sed-logo.png" alt="SED Specialized Equine Dentistry"></a>
   <button id="menu-btn">☰</button>
   <ul class="nav-links" id="nav-links">
     <li><a href="#sintomas">Síntomas</a></li>
@@ -298,174 +315,177 @@ footer{background:var(--dark);padding:3.5rem 6vw 2rem;border-top:1px solid var(-
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-img" id="hero-img"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-badge">
-    <div class="hb"><div class="hb-icon">🐎</div><div><div class="hb-label">Atendidos</div><div class="hb-val">+200 caballos</div></div></div>
-    <div class="hb"><div class="hb-icon">📍</div><div><div class="hb-label">Cobertura</div><div class="hb-val">Todo Colombia</div></div></div>
+  <div class="hero-deco">
+    <div class="hero-blob b1"></div>
+    <div class="hero-blob b2"></div>
   </div>
-  <div class="hero-content">
-    <div class="hero-tag">Odontología Equina Especializada · Colombia</div>
-    <h1 class="hero-h1">Tu caballo merece<br>el nivel más alto<br>de <em>cuidado dental</em></h1>
-    <p class="hero-p">Diagnóstico preciso y procedimientos de alta complejidad — directamente en tu haras, donde tu caballo se siente seguro.</p>
-    <div class="hero-btns">
-      <a href="https://wa.link/wzy3jo" class="btn-gold" target="_blank">Solicitar evaluación →</a>
-      <a href="#sintomas" class="btn-outline">¿Mi caballo necesita?</a>
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div class="hero-badge"><span></span>Odontología Equina Especializada · Colombia</div>
+      <h1 class="hero-h1">El nivel más alto de <span class="grad">cuidado dental</span> para tu caballo</h1>
+      <p class="hero-p">Diagnóstico preciso y procedimientos de alta complejidad, directamente en tu haras — donde tu caballo se siente seguro.</p>
+      <div class="hero-btns">
+        <a href="https://wa.link/wzy3jo" class="btn-grad" target="_blank">Solicitar evaluación →</a>
+        <a href="#servicios" class="btn-ghost">Ver servicios</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hero-stat-n">+200</div><div class="hero-stat-l">Caballos atendidos</div></div>
+        <div><div class="hero-stat-n v">USP</div><div class="hero-stat-l">Maestría · Brasil</div></div>
+        <div><div class="hero-stat-n">24h</div><div class="hero-stat-l">Urgencias</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img-main">
+        <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=900&q=85" alt="Caballo">
+      </div>
+      <div class="hero-logo-float">
+        <img src="sed-logo.png" alt="SED">
+      </div>
     </div>
   </div>
-  <div class="hero-scroll">Scroll</div>
 </section>
 
 <!-- SINTOMAS -->
 <section id="sintomas">
-  <div class="reveal">
+  <div class="s-head reveal">
     <div class="s-tag">Señales de alerta</div>
-    <h2 class="s-title">¿Cómo saber si tu caballo<br><em>necesita atención dental?</em></h2>
+    <h2 class="s-title">¿Tu caballo <span class="grad">necesita atención dental?</span></h2>
     <p class="s-sub">Los caballos no muestran dolor fácilmente. Reconocer las señales temprano puede evitar problemas mayores.</p>
   </div>
   <div class="sint-grid">
     <div class="sint-card reveal">
       <div class="sint-icon">🌾</div>
       <div class="sint-titulo">Pierde comida al masticar</div>
-      <div class="sint-desc">Caída de granos o bolas de heno parcialmente masticadas indican problemas en la oclusión dental.</div>
+      <div class="sint-desc">Caída de granos o bolas de heno parcialmente masticadas indican problemas en la oclusión.</div>
     </div>
     <div class="sint-card reveal delay-1">
       <div class="sint-icon">⚡</div>
       <div class="sint-titulo">Resistencia al freno</div>
-      <div class="sint-desc">Cabeceo o rechazo al bocado durante la monta pueden ser señal de dolor dental o puntas afiladas.</div>
+      <div class="sint-desc">Cabeceo o rechazo al bocado durante la monta pueden señalar dolor dental o puntas afiladas.</div>
     </div>
     <div class="sint-card reveal delay-2">
       <div class="sint-icon">💧</div>
       <div class="sint-titulo">Mal aliento o secreción</div>
-      <div class="sint-desc">Halitosis intensa o secreción nasal unilateral son indicadores frecuentes de infección dental o sinusitis.</div>
+      <div class="sint-desc">Halitosis intensa o secreción nasal unilateral indican infección dental o sinusitis.</div>
     </div>
     <div class="sint-card reveal delay-3">
       <div class="sint-icon">⚖️</div>
       <div class="sint-titulo">Pérdida de peso</div>
-      <div class="sint-desc">Pérdida progresiva de condición corporal sin causa aparente — frecuentemente relacionada a dolor dental.</div>
+      <div class="sint-desc">Pérdida progresiva de condición corporal sin causa aparente, ligada a dolor dental.</div>
     </div>
   </div>
   <div class="sint-cta reveal">
-    <p>¿Tu caballo presenta <strong>alguna de estas señales?</strong> Una evaluación temprana puede prevenir cirugías costosas.</p>
-    <a href="https://wa.link/wzy3jo" class="btn-gold" target="_blank">Consultar ahora →</a>
+    <div class="sint-cta-text">
+      <h3>¿Identificaste alguna de estas señales?</h3>
+      <p>Una evaluación temprana puede prevenir cirugías costosas.</p>
+    </div>
+    <a href="https://wa.link/wzy3jo" class="btn-white" target="_blank">Consultar ahora →</a>
   </div>
 </section>
 
-<!-- SERVIÇOS -->
+<!-- SERVICIOS -->
 <section id="servicios">
-  <div class="reveal">
+  <div class="s-head reveal">
     <div class="s-tag">Lo que ofrecemos</div>
-    <h2 class="s-title">Servicios <em>especializados</em></h2>
+    <h2 class="s-title">Servicios <span class="grad">especializados</span></h2>
     <p class="s-sub">Procedimientos de alta complejidad con equipamiento especializado, directamente en campo.</p>
   </div>
   <div class="srv-grid">
     <div class="srv-card reveal" onclick="abrirModal('sinusitis')">
       <div class="srv-num">01</div>
       <div class="srv-name">Sinusitis Secundaria</div>
-      <div class="srv-desc">Diagnóstico y tratamiento de sinusitis equina derivada de afecciones dentales, con protocolos de última generación.</div>
-      <div class="srv-saibamais">Saber más →</div>
+      <div class="srv-desc">Diagnóstico y tratamiento de sinusitis equina derivada de afecciones dentales.</div>
+      <div class="srv-link">Saber más →</div>
     </div>
     <div class="srv-card reveal delay-1" onclick="abrirModal('radiologia')">
       <div class="srv-num">02</div>
-      <div class="srv-name">Radiología de Cabeza Equina</div>
-      <div class="srv-desc">Imágenes de alta precisión para diagnóstico de estructuras dentales y óseas del cráneo equino en campo.</div>
-      <div class="srv-saibamais">Saber más →</div>
+      <div class="srv-name">Radiología de Cabeza</div>
+      <div class="srv-desc">Imágenes de alta precisión para diagnóstico de estructuras dentales y óseas del cráneo.</div>
+      <div class="srv-link">Saber más →</div>
     </div>
     <div class="srv-card reveal delay-2" onclick="abrirModal('cirugia')">
       <div class="srv-num">03</div>
       <div class="srv-name">Cirugía Sinusal</div>
-      <div class="srv-desc">Trepanación y sinusotomía — procedimientos quirúrgicos para acceso y tratamiento de los senos paranasales.</div>
-      <div class="srv-saibamais">Saber más →</div>
+      <div class="srv-desc">Trepanación y sinusotomía para acceso y tratamiento de los senos paranasales.</div>
+      <div class="srv-link">Saber más →</div>
     </div>
     <div class="srv-card reveal" onclick="abrirModal('extracciones')">
       <div class="srv-num">04</div>
       <div class="srv-name">Extracciones Dentarias</div>
-      <div class="srv-desc">Exodoncias intraoral y extraoral con técnicas mínimamente invasivas. Confort y recuperación rápida.</div>
-      <div class="srv-saibamais">Saber más →</div>
+      <div class="srv-desc">Exodoncias con técnicas mínimamente invasivas. Confort y recuperación rápida.</div>
+      <div class="srv-link">Saber más →</div>
     </div>
     <div class="srv-card reveal delay-1" onclick="abrirModal('odontoplastia')">
       <div class="srv-num">05</div>
       <div class="srv-name">Odontoplastia</div>
-      <div class="srv-desc">Equilibrio oclusal completo para mejorar la masticación, el confort con el freno y el rendimiento deportivo.</div>
-      <div class="srv-saibamais">Saber más →</div>
+      <div class="srv-desc">Equilibrio oclusal para mejorar masticación, confort con el freno y rendimiento.</div>
+      <div class="srv-link">Saber más →</div>
     </div>
     <div class="srv-card reveal delay-2" onclick="abrirModal('precompra')">
       <div class="srv-num">06</div>
       <div class="srv-name">Examen Pre-compra</div>
-      <div class="srv-desc">Evaluación completa del estado dental antes de adquirir el equino. Transparencia total en la transacción.</div>
-      <div class="srv-saibamais">Saber más →</div>
+      <div class="srv-desc">Evaluación completa del estado dental antes de adquirir el equino.</div>
+      <div class="srv-link">Saber más →</div>
     </div>
   </div>
 </section>
 
 <!-- COMO FUNCIONA -->
 <section id="como">
-  <div class="reveal" style="text-align:center;">
-    <div class="s-tag" style="justify-content:center;">Sin complicación</div>
-    <h2 class="s-title" style="text-align:center;margin:0 auto;">Atención en <em>3 pasos</em></h2>
+  <div class="s-head reveal">
+    <div class="s-tag">Sin complicación</div>
+    <h2 class="s-title">Atención en <span class="grad">3 pasos</span></h2>
   </div>
   <div class="como-grid">
     <div class="como-step reveal">
       <div class="como-num">01</div>
-      <h3 class="como-titulo"><em>Contacto</em> y agendamiento</h3>
-      <p class="como-desc">Háblanos por WhatsApp. Evaluamos los síntomas, agendamos la visita y confirmamos cobertura de tu región.</p>
+      <h3 class="como-titulo">Contacto y agendamiento</h3>
+      <p class="como-desc">Háblanos por WhatsApp. Evaluamos los síntomas y confirmamos cobertura de tu región.</p>
+    </div>
+    <div class="como-step reveal delay-1">
+      <div class="como-num">02</div>
+      <h3 class="como-titulo">Diagnóstico en campo</h3>
+      <p class="como-desc">Llegamos a tu haras con equipamiento especializado. Sin estrés para el animal.</p>
     </div>
     <div class="como-step reveal delay-2">
-      <div class="como-num">02</div>
-      <h3 class="como-titulo"><em>Diagnóstico</em> en campo</h3>
-      <p class="como-desc">Llegamos a tu haras con equipamiento especializado — oroscopia, radiografía y análisis completo. Sin estrés para el animal.</p>
-    </div>
-    <div class="como-step reveal delay-3">
       <div class="como-num">03</div>
-      <h3 class="como-titulo"><em>Tratamiento</em> y seguimiento</h3>
-      <p class="como-desc">Procedimiento en el día con técnicas mínimamente invasivas. Acompañamiento postoperatorio incluido.</p>
+      <h3 class="como-titulo">Tratamiento y seguimiento</h3>
+      <p class="como-desc">Procedimiento en el día con técnicas mínimamente invasivas. Acompañamiento incluido.</p>
     </div>
   </div>
 </section>
 
-<!-- SOBRE + CERTIFICADOS -->
+<!-- SOBRE -->
 <section id="sobre">
   <div class="sobre-grid">
-    <div class="sobre-imgs reveal-left" style="opacity:0;transform:translateX(-40px);transition:all .9s cubic-bezier(0.22,1,0.36,1);">
-      <div class="sobre-img-main sobre-img-frame">
-        <img src="https://sedvet.com.br/wp-content/uploads/2024/10/IMG_5205-1-1024x789.jpg" alt="Dr. Diego Velásquez" loading="lazy">
+    <div class="sobre-img-wrap reveal">
+      <div class="sobre-img">
+        <img src="https://sedvet.com.br/wp-content/uploads/2024/10/IMG_5205-1-1024x789.jpg" alt="Dr. Diego Velásquez">
       </div>
-      <div class="sobre-img-sm sobre-img-frame">
-        <img src="https://sedvet.com.br/wp-content/uploads/2024/10/IMG_5660-1-scaled-1-1024x768.jpg" alt="Procedimento" loading="lazy">
-      </div>
-      <div class="sobre-img-sm sobre-img-frame">
-        <img src="https://images.unsplash.com/photo-1599242523473-582f2e0f4bc9?w=600&q=80" alt="Caballo" loading="lazy">
+      <div class="sobre-badge">
+        <div class="sobre-badge-n">+5</div>
+        <div class="sobre-badge-l">años de<br>experiencia</div>
       </div>
     </div>
-    <div class="reveal">
+    <div class="reveal delay-1">
       <div class="s-tag">El especialista</div>
-      <h2 class="s-title">Dr. Diego<br><em>Velásquez</em></h2>
+      <h2 class="s-title" style="text-align:left;">Dr. Diego <span class="grad">Velásquez</span></h2>
       <p class="sobre-bio">SED nació para elevar el estándar de la salud dental equina en Colombia. No es una consulta genérica — es diagnóstico de alto nivel, con equipamiento especializado, directamente en campo.</p>
-      <p class="sobre-bio">El Dr. Diego atiende haras de alto rendimiento, criadores exigentes y propietarios que no negocian la salud de sus caballos.</p>
+      <p class="sobre-bio">El Dr. Diego atiende haras de alto rendimiento, criadores exigentes y propietarios que <strong>no negocian la salud de sus caballos</strong>.</p>
       <div class="sobre-cred">
         <div class="sobre-cred-label">Formación principal</div>
-        <p><strong>Maestría en Cirugía Odontológica Equina</strong><br>Centro de Odontología Equina — Universidade de São Paulo, Brasil.<br>Médico Veterinario y Zootecnista · Reg. 15.234-B</p>
+        <p><strong>Maestría en Cirugía Odontológica Equina</strong><br>Universidade de São Paulo (USP), Brasil · Médico Veterinario y Zootecnista · Reg. 15.234-B</p>
       </div>
-      <div class="cert-grid">
+      <div class="cert-row">
         <div class="cert">
           <div class="cert-badge">USP · Brasil</div>
-          <div class="cert-name">Maestría en Clínica Quirúrgica Veterinaria</div>
-          <div class="cert-inst">São Paulo · 2019–2021</div>
-        </div>
-        <div class="cert">
-          <div class="cert-badge">COE Brasil</div>
-          <div class="cert-name">Extracciones Dentarias Equinas Avanzado</div>
-          <div class="cert-inst">São Paulo · 2020</div>
+          <div class="cert-name">Maestría en Clínica Quirúrgica</div>
+          <div class="cert-inst">2019–2021</div>
         </div>
         <div class="cert">
           <div class="cert-badge">FMVZ · USP</div>
           <div class="cert-name">Cirugía Sinusal Equina</div>
-          <div class="cert-inst">São Paulo · 2021</div>
-        </div>
-        <div class="cert">
-          <div class="cert-badge">EDC · Argentina</div>
-          <div class="cert-name">Congreso Internacional · Ponente</div>
-          <div class="cert-inst">Buenos Aires · 2023</div>
+          <div class="cert-inst">2021</div>
         </div>
       </div>
     </div>
@@ -473,82 +493,70 @@ footer{background:var(--dark);padding:3.5rem 6vw 2rem;border-top:1px solid var(-
 </section>
 
 <!-- GALERIA -->
-<section id="galeria" style="padding:0;">
-  <div class="gal-header reveal">
+<section id="galeria">
+  <div class="s-head reveal">
     <div class="s-tag">Portafolio</div>
-    <h2 class="s-title">Casos <em>reales</em> en campo</h2>
+    <h2 class="s-title">Casos <span class="grad">reales</span> en campo</h2>
   </div>
-  <div class="gal-masonry">
-    <div class="gal-item">
-      <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=900&q=85" alt="Caballo" loading="lazy">
-      <div class="gal-overlay"></div>
-      <div class="gal-label">Caso real · Colombia</div>
+  <div class="gal-grid">
+    <div class="gal-item reveal">
+      <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=900&q=85" alt="Caballo">
+      <div class="gal-overlay"><span class="gal-label">Atención en haras · Colombia</span></div>
     </div>
-    <div class="gal-item">
-      <img src="https://sedvet.com.br/wp-content/uploads/2024/10/Tratamiento-de-Simusitis--scaled.jpg" alt="Sinusitis" loading="lazy">
-      <div class="gal-overlay"></div>
-      <div class="gal-label">Sinusitis secundaria</div>
+    <div class="gal-item reveal">
+      <img src="https://sedvet.com.br/wp-content/uploads/2024/10/Tratamiento-de-Simusitis--scaled.jpg" alt="Sinusitis">
+      <div class="gal-overlay"><span class="gal-label">Sinusitis secundaria</span></div>
     </div>
-    <div class="gal-item">
-      <img src="https://sedvet.com.br/wp-content/uploads/2024/10/Cirugia-sinusais-1003x1024.jpg" alt="Cirugía" loading="lazy">
-      <div class="gal-overlay"></div>
-      <div class="gal-label">Cirugía sinusal</div>
+    <div class="gal-item reveal">
+      <img src="https://sedvet.com.br/wp-content/uploads/2024/10/Cirugia-sinusais-1003x1024.jpg" alt="Cirugía">
+      <div class="gal-overlay"><span class="gal-label">Cirugía sinusal</span></div>
     </div>
-    <div class="gal-item">
-      <img src="https://sedvet.com.br/wp-content/uploads/2024/10/Atendimiento-Odontologico-1-scaled.jpg" alt="Atención" loading="lazy">
-      <div class="gal-overlay"></div>
-      <div class="gal-label">Odontoplastia</div>
+    <div class="gal-item reveal">
+      <img src="https://sedvet.com.br/wp-content/uploads/2024/10/Atendimiento-Odontologico-1-scaled.jpg" alt="Atención">
+      <div class="gal-overlay"><span class="gal-label">Odontoplastia</span></div>
     </div>
-    <div class="gal-item">
-      <img src="https://sedvet.com.br/wp-content/uploads/2024/10/IMG_5660-1-scaled-1-1024x768.jpg" alt="Procedimento" loading="lazy">
-      <div class="gal-overlay"></div>
-      <div class="gal-label">Atención en haras</div>
-    </div>
-    <div class="gal-item">
-      <img src="https://images.unsplash.com/photo-1599242523473-582f2e0f4bc9?w=600&q=80" alt="Caballo" loading="lazy">
-      <div class="gal-overlay"></div>
-      <div class="gal-label">Seguimiento postoperatorio</div>
+    <div class="gal-item reveal">
+      <img src="https://sedvet.com.br/wp-content/uploads/2024/10/IMG_5660-1-scaled-1-1024x768.jpg" alt="Procedimiento">
+      <div class="gal-overlay"><span class="gal-label">Atención en campo</span></div>
     </div>
   </div>
 </section>
 
-<!-- CTA BAND -->
+<!-- CTA -->
 <div class="cta-band">
-  <div class="cta-band-content">
-    <h2>¿Listo para darle a tu caballo<br>el <em>cuidado que merece?</em></h2>
-    <p>Evaluación gratuita por WhatsApp. Te ayudamos a identificar si tu caballo necesita atención dental — sin compromiso.</p>
-    <a href="https://wa.link/wzy3jo" class="btn-dark" target="_blank">Hablar con el Dr. Diego →</a>
+  <div class="cta-content">
+    <h2>¿Listo para darle a tu caballo el cuidado que merece?</h2>
+    <p>Evaluación por WhatsApp. Te ayudamos a identificar si tu caballo necesita atención dental, sin compromiso.</p>
+    <a href="https://wa.link/wzy3jo" class="btn-white" target="_blank">Hablar con el Dr. Diego →</a>
   </div>
 </div>
 
 <!-- CONTATO -->
 <section id="contacto">
-  <div class="reveal">
-    <div class="s-tag">Estamos aquí</div>
-    <h2 class="s-title">Habla con <em>nosotros</em></h2>
-    <p class="s-sub">Urgencia o revisión de rutina — respondemos rápido.</p>
-  </div>
   <div class="contact-grid">
     <div class="reveal">
-      <div class="ci">
-        <div class="ci-icon">💬</div>
-        <div><div class="ci-label">WhatsApp</div><div class="ci-val"><a href="https://wa.link/wzy3jo" target="_blank">Abrir conversación →</a></div></div>
-      </div>
-      <div class="ci">
-        <div class="ci-icon">📷</div>
-        <div><div class="ci-label">Instagram</div><div class="ci-val"><a href="https://www.instagram.com/sed_vet" target="_blank">@sed_vet</a></div></div>
-      </div>
-      <div class="ci">
-        <div class="ci-icon">📍</div>
-        <div><div class="ci-label">Ubicación</div><div class="ci-val">Bogotá, Colombia<br>Atención en todo el país</div></div>
-      </div>
-      <div class="ci">
-        <div class="ci-icon">🕐</div>
-        <div><div class="ci-label">Horario</div><div class="ci-val">Lun – Vie · 8h – 18h<br>Urgencias: disponibilidad 24h</div></div>
+      <div class="s-tag">Estamos aquí</div>
+      <h2 class="s-title" style="text-align:left;">Habla con <span class="grad">nosotros</span></h2>
+      <div style="margin-top:2rem;">
+        <div class="ci">
+          <div class="ci-icon">💬</div>
+          <div><div class="ci-label">WhatsApp</div><div class="ci-val"><a href="https://wa.link/wzy3jo" target="_blank">Abrir conversación →</a></div></div>
+        </div>
+        <div class="ci">
+          <div class="ci-icon">📷</div>
+          <div><div class="ci-label">Instagram</div><div class="ci-val"><a href="https://www.instagram.com/sed_vet" target="_blank">@sed_vet</a></div></div>
+        </div>
+        <div class="ci">
+          <div class="ci-icon">📍</div>
+          <div><div class="ci-label">Cobertura</div><div class="ci-val">Bogotá y todo Colombia</div></div>
+        </div>
       </div>
     </div>
-    <div class="contact-img reveal">
-      <img src="https://images.unsplash.com/photo-1534774065116-fc38e3c8c27e?w=800&q=85" alt="Caballo en haras" loading="lazy">
+    <div class="contact-card reveal delay-1">
+      <img src="sed-logo.png" class="contact-card-logo" alt="SED">
+      <h3>Agenda tu evaluación</h3>
+      <p>Urgencia o revisión de rutina — respondemos rápido. Atención directa del especialista, en tu haras.</p>
+      <a href="https://wa.link/wzy3jo" class="btn-white" target="_blank">Solicitar ahora →</a>
     </div>
   </div>
 </section>
@@ -557,12 +565,8 @@ footer{background:var(--dark);padding:3.5rem 6vw 2rem;border-top:1px solid var(-
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-logo">SED · Specialized Equine Dentistry</div>
-      <p class="footer-sub">Especialistas en odontología equina. Atendiendo haras y propietarios en toda Colombia con el más alto nivel de excelencia.</p>
-      <p style="font-size:.75rem;color:var(--ink-dim);margin-top:.8rem;">
-        <a onclick="abrirPriv()" style="cursor:pointer;">Política de Privacidad</a> ·
-        <a onclick="abrirPriv()" style="cursor:pointer;">Ley 1581 de 2012</a>
-      </p>
+      <img src="sed-logo.png" class="footer-logo" alt="SED Specialized Equine Dentistry">
+      <p class="footer-about">Especialistas en odontología equina. Atendiendo haras y propietarios en toda Colombia con el más alto nivel de excelencia.</p>
     </div>
     <div class="footer-col">
       <h4>Navegación</h4>
@@ -571,14 +575,14 @@ footer{background:var(--dark);padding:3.5rem 6vw 2rem;border-top:1px solid var(-
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#sobre">Especialista</a></li>
         <li><a href="#galeria">Galería</a></li>
-        <li><a href="#contacto">Contacto</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Contacto</h4>
       <ul>
         <li><a href="https://wa.link/wzy3jo" target="_blank">WhatsApp</a></li>
-        <li><a href="https://www.instagram.com/sed_vet" target="_blank">Instagram @sed_vet</a></li>
+        <li><a href="https://www.instagram.com/sed_vet" target="_blank">Instagram</a></li>
+        <li><a onclick="abrirPriv()" style="cursor:pointer;">Política de Privacidad</a></li>
       </ul>
     </div>
   </div>
@@ -588,7 +592,7 @@ footer{background:var(--dark);padding:3.5rem 6vw 2rem;border-top:1px solid var(-
   </div>
 </footer>
 
-<!-- WA FLOAT -->
+<!-- WA -->
 <a href="https://wa.link/wzy3jo" class="wa-float" target="_blank">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
@@ -596,14 +600,17 @@ footer{background:var(--dark);padding:3.5rem 6vw 2rem;border-top:1px solid var(-
 <!-- MODAL SERVIÇOS -->
 <div class="modal-bg" id="modal-bg" onclick="fecharModal(event)">
   <div class="modal" id="modal">
-    <div class="modal-hero" id="modal-hero"></div>
+    <div class="modal-hero" id="modal-hero">
+      <div class="modal-hero-icon" id="modal-icon">🦷</div>
+      <div class="modal-num" id="modal-num">01</div>
+    </div>
     <button class="modal-close" onclick="fecharModalBtn()">✕</button>
     <div class="modal-body">
       <div class="modal-tag" id="modal-tag"></div>
       <h2 class="modal-title" id="modal-title"></h2>
       <div id="modal-content"></div>
       <div class="modal-cta">
-        <a href="https://wa.link/wzy3jo" class="btn-gold" target="_blank">Consultar este servicio →</a>
+        <a href="https://wa.link/wzy3jo" class="btn-grad" target="_blank">Consultar este servicio →</a>
       </div>
     </div>
   </div>
@@ -613,230 +620,78 @@ footer{background:var(--dark);padding:3.5rem 6vw 2rem;border-top:1px solid var(-
 <div class="cookie" id="cookie">
   <div class="cookie-text">
     🍪 Utilizamos cookies para mejorar tu experiencia. Al continuar navegando aceptas nuestra
-    <a onclick="abrirPriv()">Política de Privacidad</a> conforme a la <strong>Ley 1581 de 2012</strong> (Colombia).
+    <a onclick="abrirPriv()">Política de Privacidad</a>, conforme a la <strong>Ley 1581 de 2012</strong> (Colombia).
   </div>
   <div class="cookie-btns">
-    <button class="ck-btn ck-recusar" onclick="recusar()">Solo esenciales</button>
-    <button class="ck-btn ck-aceitar" onclick="aceitar()">Aceptar</button>
+    <button class="ck-btn ck-no" onclick="recusar()">Solo esenciales</button>
+    <button class="ck-btn ck-ok" onclick="aceitar()">Aceptar</button>
   </div>
 </div>
 
-<!-- MODAL PRIVACIDADE -->
+<!-- PRIVACIDADE -->
 <div class="priv-bg" id="priv-bg" onclick="fecharPrivEvt(event)">
   <div class="priv-box">
     <button class="priv-close" onclick="fecharPriv()">✕</button>
     <h2>Política de Privacidad</h2>
-    <div class="priv-date">Última actualización: Junio 2025 · SED Specialized Equine Dentistry · Dr. Diego Velásquez</div>
+    <div class="priv-date">Última actualización: Junio 2025 · SED Specialized Equine Dentistry</div>
     <h3>1. Responsable del tratamiento</h3>
-    <p><strong>SED Specialized Equine Dentistry</strong>, representada por el Dr. Diego Velásquez, MVZ Reg. 15.234-B, con domicilio en Bogotá, Colombia, es responsable del tratamiento de los datos personales recolectados en este sitio web, de conformidad con la <strong>Ley 1581 de 2012</strong> y el Decreto 1377 de 2013.</p>
+    <p><strong>SED Specialized Equine Dentistry</strong>, representada por el Dr. Diego Velásquez (MVZ Reg. 15.234-B), Bogotá, Colombia, responsable del tratamiento de datos conforme a la <strong>Ley 1581 de 2012</strong> y el Decreto 1377 de 2013.</p>
     <h3>2. Datos que recolectamos</h3>
     <ul>
-      <li><strong>Datos de contacto:</strong> nombre, teléfono y correo electrónico proporcionados voluntariamente vía WhatsApp.</li>
-      <li><strong>Datos de navegación:</strong> dirección IP, tipo de navegador y páginas visitadas (vía cookies).</li>
+      <li><strong>Datos de contacto:</strong> nombre, teléfono y correo proporcionados vía WhatsApp.</li>
+      <li><strong>Datos de navegación:</strong> dirección IP y páginas visitadas (vía cookies).</li>
     </ul>
-    <h3>3. Finalidad del tratamiento</h3>
+    <h3>3. Finalidad</h3>
     <ul>
-      <li>Responder solicitudes de consulta y presupuestos</li>
+      <li>Responder solicitudes y presupuestos</li>
       <li>Agendar visitas a haras</li>
-      <li>Mejorar la experiencia de navegación en el sitio</li>
+      <li>Mejorar la experiencia de navegación</li>
     </ul>
-    <h3>4. Cookies</h3>
-    <p>Utilizamos cookies esenciales para el funcionamiento del sitio. Puedes rechazar las cookies no esenciales desde el banner de cookies.</p>
-    <h3>5. Compartición de datos</h3>
-    <p>Sus datos <strong>no son vendidos ni compartidos</strong> con terceros para fines comerciales.</p>
-    <h3>6. Derechos del titular (Ley 1581/2012)</h3>
-    <p>Usted tiene derecho a: conocer, actualizar, rectificar y suprimir sus datos; revocar la autorización en cualquier momento. Para ejercer sus derechos, contáctenos vía WhatsApp.</p>
-    <h3>7. Contacto</h3>
-    <p><strong>WhatsApp:</strong> <a href="https://wa.link/wzy3jo" target="_blank">Abrir chat</a><br><strong>Instagram:</strong> @sed_vet</p>
+    <h3>4. Derechos del titular</h3>
+    <p>Conocer, actualizar, rectificar y suprimir sus datos; revocar la autorización. Para ejercerlos, contáctenos vía WhatsApp.</p>
+    <h3>5. Contacto</h3>
+    <p><strong>WhatsApp:</strong> <a href="https://wa.link/wzy3jo" target="_blank">Abrir chat</a> · <strong>Instagram:</strong> @sed_vet</p>
   </div>
 </div>
 
 <script>
-// Nav
-const nav = document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50));
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
 document.getElementById('menu-btn').addEventListener('click',()=>document.getElementById('nav-links').classList.toggle('open'));
 document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav-links').classList.remove('open')));
 
-// Hero img ken burns
-window.addEventListener('load',()=>document.getElementById('hero-img').classList.add('loaded'));
-
-// Reveal com stagger automatico em grids
-const obs = new IntersectionObserver(e=>e.forEach(x=>{
-  if(x.isIntersecting){
-    x.target.classList.add('visible');
-    obs.unobserve(x.target);
-  }
-}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-// Stagger automatico: filhos de grids ganham delay em cascata
-document.querySelectorAll('.sint-grid,.srv-grid,.cert-grid,.gal-masonry').forEach(grid=>{
-  [...grid.children].forEach((child,i)=>{
-    child.classList.add('reveal');
-    child.style.transitionDelay = (i*0.08)+'s';
-    obs.observe(child);
-  });
-});
-
-// Reveal-left manual
-const obs2 = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='none';}}),{threshold:.1});
-document.querySelectorAll('[class*="reveal-left"]').forEach(el=>obs2.observe(el));
-
-// Dados dos modais
-const modais = {
-  sinusitis:{
-    tag:'Servicio 01',
-    title:'Tratamiento de <em>Sinusitis Secundaria</em>',
-    img:'https://sedvet.com.br/wp-content/uploads/2024/10/Tratamiento-de-Simusitis--scaled.jpg',
-    content:`
-      <div class="modal-section">
-        <h3>¿Qué es?</h3>
-        <p>La sinusitis secundaria es una infección de los senos paranasales causada por una afección dental — generalmente una raíz infectada. Sin el tratamiento dental correcto, los antibióticos solo enmascaran los síntomas y la infección regresa.</p>
-      </div>
-      <div class="modal-divider"></div>
-      <div class="modal-section">
-        <h3>Señales características</h3>
-        <p><strong>Secreción nasal unilateral:</strong> salida de pus por una sola fosa nasal.<br>
-        <strong>Mal aliento intenso:</strong> halitosis con olor fétido persistente.<br>
-        <strong>Asimetría facial:</strong> hinchazón visible en un lado de la cara.</p>
-      </div>
-      <div class="modal-divider"></div>
-      <div class="modal-section">
-        <h3>Nuestro protocolo</h3>
-        <p>1. Radiografía completa de cráneo y oroscopia para identificar la causa dental.<br>
-        2. Tratamiento del foco infeccioso — extracción o tratamiento del diente afectado.<br>
-        3. Drenaje y limpieza sinusal en casos avanzados.<br>
-        4. Seguimiento postoperatorio a los 15 y 30 días.</p>
-      </div>`
-  },
-  radiologia:{
-    tag:'Servicio 02',
-    title:'Radiología de <em>Cabeza Equina</em>',
-    img:'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=900&q=85',
-    content:`
-      <div class="modal-section">
-        <h3>¿Qué es?</h3>
-        <p>La radiología dental equina permite visualizar estructuras que no son evaluables por inspección directa — raíces dentales, senos paranasales, hueso alveolar y articulación temporomandibular.</p>
-      </div>
-      <div class="modal-divider"></div>
-      <div class="modal-section">
-        <h3>Cuándo se indica</h3>
-        <p>Sospecha de sinusitis secundaria, fractura dental, quiste apical, diente retenido, evaluación pre-quirúrgica y examen pre-compra de alto nivel.</p>
-      </div>
-      <div class="modal-divider"></div>
-      <div class="modal-section">
-        <h3>Nuestro equipamiento</h3>
-        <p>Realizamos radiografía digital en campo, directamente en el haras. Imágenes de alta resolución interpretadas por el especialista en el momento del procedimiento.</p>
-      </div>`
-  },
-  cirugia:{
-    tag:'Servicio 03',
-    title:'Cirugía Sinusal —<br><em>Trepanación y Sinusotomía</em>',
-    img:'https://sedvet.com.br/wp-content/uploads/2024/10/Cirugia-sinusais-1003x1024.jpg',
-    content:`
-      <div class="modal-section">
-        <h3>¿Cuándo es necesaria?</h3>
-        <p>Se indica cuando hay acumulación de material purulento, quistes o tumores en los senos paranasales que no responden al tratamiento conservador, o para extraer fragmentos dentales atrapados.</p>
-      </div>
-      <div class="modal-divider"></div>
-      <div class="modal-section">
-        <h3>Técnicas que aplicamos</h3>
-        <p><strong>Trepanación:</strong> apertura controlada del seno con mínima invasividad para drenaje y limpieza.<br>
-        <strong>Sinusotomía completa:</strong> acceso amplio para casos complejos.<br>
-        <strong>Endoscopia sinusal:</strong> visualización directa para diagnóstico preciso.</p>
-      </div>
-      <div class="modal-divider"></div>
-      <div class="modal-section">
-        <h3>Recuperación</h3>
-        <p>Retorno a actividades normales en 15 a 30 días. Seguimiento completo con visitas de control y orientación detallada al cuidador.</p>
-      </div>`
-  },
-  extracciones:{
-    tag:'Servicio 04',
-    title:'Extracciones <em>Dentarias</em>',
-    img:'https://sedvet.com.br/wp-content/uploads/2024/10/Atendimiento-Odontologico-1-scaled.jpg',
-    content:`
-      <div class="modal-section">
-        <h3>Tipos de extracción</h3>
-        <p><strong>Intraoral:</strong> a través de la cavidad oral con sedación leve. Técnica de elección por bajo trauma.<br>
-        <strong>Extraoral (repulsión):</strong> para dientes muy fragmentados o profundos, accediendo por un pequeño orificio externo.<br>
-        <strong>Quirúrgica de fragmentos:</strong> para fracturas antiguas o residuos infecciosos.</p>
-      </div>
-      <div class="modal-divider"></div>
-      <div class="modal-section">
-        <h3>Cuándo se indica</h3>
-        <p>Dientes fracturados con dolor o infección · Caries profundas · Dientes supranumerarios · Piezas con movilidad excesiva · Origen de sinusitis secundaria persistente.</p>
-      </div>
-      <div class="modal-divider"></div>
-      <div class="modal-section">
-        <h3>Cuidados posteriores</h3>
-        <p>Dieta blanda 7–10 días y antibioticoterapia controlada. Seguimiento por WhatsApp y visita de control a los 15 días.</p>
-      </div>`
-  },
-  odontoplastia:{
-    tag:'Servicio 05',
-    title:'<em>Odontoplastia</em> Equina',
-    img:'https://images.unsplash.com/photo-1599242523473-582f2e0f4bc9?w=800&q=80',
-    content:`
-      <div class="modal-section">
-        <h3>¿Qué es?</h3>
-        <p>La odontoplastia es el equilibrio oclusal de la boca del caballo — eliminación de puntas de esmalte, ganchos, rampas y otras irregularidades que causan dolor, dificultad para masticar y resistencia al freno.</p>
-      </div>
-      <div class="modal-divider"></div>
-      <div class="modal-section">
-        <h3>Beneficios</h3>
-        <p>Mejora en la masticación y aprovechamiento de alimentos · Mayor confort con el bocado · Mejor rendimiento deportivo · Prevención de problemas mayores.</p>
-      </div>
-      <div class="modal-divider"></div>
-      <div class="modal-section">
-        <h3>¿Con qué frecuencia?</h3>
-        <p>Se recomienda revisión anual para caballos adultos y semestral para animales en alta competición o mayores de 15 años.</p>
-      </div>`
-  },
-  precompra:{
-    tag:'Servicio 06',
-    title:'Examen <em>Pre-compra</em>',
-    img:'https://images.unsplash.com/photo-1534774065116-fc38e3c8c27e?w=800&q=85',
-    content:`
-      <div class="modal-section">
-        <h3>¿Qué incluye?</h3>
-        <p>Evaluación completa del estado dental del equino antes de la adquisición — inspección de la oclusión, estado de las raíces, presencia de lesiones, quistes o infecciones subclínicas. Todo documentado con fotografías e informe escrito.</p>
-      </div>
-      <div class="modal-divider"></div>
-      <div class="modal-section">
-        <h3>¿Por qué es importante?</h3>
-        <p>Problemas dentales no detectados pueden significar tratamientos costosos después de la compra. El examen pre-compra protege su inversión y garantiza transparencia en la transacción.</p>
-      </div>
-      <div class="modal-divider"></div>
-      <div class="modal-section">
-        <h3>Entregable</h3>
-        <p>Informe técnico detallado con estado actual, hallazgos relevantes, recomendaciones y pronóstico — en formato PDF firmado por el especialista.</p>
-      </div>`
-  }
+const modais={
+  sinusitis:{tag:'Servicio 01',icon:'🫁',num:'01',title:'Tratamiento de Sinusitis Secundaria',content:`<div class="modal-section"><h3>¿Qué es?</h3><p>Infección de los senos paranasales causada por una afección dental — generalmente una raíz infectada. Sin tratar el origen dental, los antibióticos solo enmascaran los síntomas.</p></div><div class="modal-divider"></div><div class="modal-section"><h3>Señales características</h3><p><strong>Secreción nasal unilateral:</strong> pus por una sola fosa.<br><strong>Mal aliento intenso</strong> y <strong>asimetría facial</strong>.</p></div><div class="modal-divider"></div><div class="modal-section"><h3>Nuestro protocolo</h3><p>Radiografía y oroscopia · Tratamiento del foco infeccioso · Drenaje y limpieza sinusal · Seguimiento a los 15 y 30 días.</p></div>`},
+  radiologia:{tag:'Servicio 02',icon:'🔬',num:'02',title:'Radiología de Cabeza Equina',content:`<div class="modal-section"><h3>¿Qué es?</h3><p>Permite visualizar estructuras no evaluables por inspección directa — raíces dentales, senos paranasales, hueso alveolar y articulación temporomandibular.</p></div><div class="modal-divider"></div><div class="modal-section"><h3>Cuándo se indica</h3><p>Sospecha de sinusitis, fractura dental, quiste apical, diente retenido, evaluación pre-quirúrgica y examen pre-compra.</p></div><div class="modal-divider"></div><div class="modal-section"><h3>Equipamiento</h3><p>Radiografía digital en campo, directamente en el haras, con interpretación inmediata del especialista.</p></div>`},
+  cirugia:{tag:'Servicio 03',icon:'🩺',num:'03',title:'Cirugía Sinusal',content:`<div class="modal-section"><h3>¿Cuándo es necesaria?</h3><p>Acumulación de material purulento, quistes o tumores que no responden al tratamiento conservador, o extracción de fragmentos dentales atrapados.</p></div><div class="modal-divider"></div><div class="modal-section"><h3>Técnicas</h3><p><strong>Trepanación:</strong> apertura controlada para drenaje.<br><strong>Sinusotomía:</strong> acceso amplio para casos complejos.<br><strong>Endoscopia sinusal</strong> para diagnóstico preciso.</p></div><div class="modal-divider"></div><div class="modal-section"><h3>Recuperación</h3><p>Retorno a actividades en 15 a 30 días, con seguimiento completo.</p></div>`},
+  extracciones:{tag:'Servicio 04',icon:'🦷',num:'04',title:'Extracciones Dentarias',content:`<div class="modal-section"><h3>Tipos</h3><p><strong>Intraoral:</strong> con sedación leve, técnica de elección.<br><strong>Extraoral:</strong> para piezas fragmentadas o profundas.<br><strong>Quirúrgica:</strong> para fracturas antiguas o residuos.</p></div><div class="modal-divider"></div><div class="modal-section"><h3>Indicaciones</h3><p>Dientes fracturados con dolor · Caries profundas · Dientes supranumerarios · Movilidad excesiva · Origen de sinusitis persistente.</p></div><div class="modal-divider"></div><div class="modal-section"><h3>Cuidados posteriores</h3><p>Dieta blanda 7–10 días, antibioticoterapia y visita de control a los 15 días.</p></div>`},
+  odontoplastia:{tag:'Servicio 05',icon:'⚙️',num:'05',title:'Odontoplastia Equina',content:`<div class="modal-section"><h3>¿Qué es?</h3><p>Equilibrio oclusal de la boca — eliminación de puntas de esmalte, ganchos y rampas que causan dolor, dificultad para masticar y resistencia al freno.</p></div><div class="modal-divider"></div><div class="modal-section"><h3>Beneficios</h3><p>Mejor masticación · Mayor confort con el bocado · Mejor rendimiento deportivo · Prevención de problemas mayores.</p></div><div class="modal-divider"></div><div class="modal-section"><h3>Frecuencia</h3><p>Revisión anual para adultos, semestral para animales de alta competición o mayores de 15 años.</p></div>`},
+  precompra:{tag:'Servicio 06',icon:'📋',num:'06',title:'Examen Pre-compra',content:`<div class="modal-section"><h3>¿Qué incluye?</h3><p>Evaluación completa antes de la adquisición — oclusión, estado de raíces, lesiones, quistes o infecciones subclínicas. Documentado con fotos e informe escrito.</p></div><div class="modal-divider"></div><div class="modal-section"><h3>¿Por qué importa?</h3><p>Problemas no detectados pueden significar tratamientos costosos después de la compra. Protege tu inversión.</p></div><div class="modal-divider"></div><div class="modal-section"><h3>Entregable</h3><p>Informe técnico en PDF firmado por el especialista.</p></div>`}
 };
 
 function abrirModal(id){
-  const m = modais[id];
-  document.getElementById('modal-tag').textContent = m.tag;
-  document.getElementById('modal-title').innerHTML = m.title;
-  document.getElementById('modal-hero').style.backgroundImage = `url('${m.img}')`;
-  document.getElementById('modal-content').innerHTML = m.content;
+  const m=modais[id];
+  document.getElementById('modal-tag').textContent=m.tag;
+  document.getElementById('modal-title').textContent=m.title;
+  document.getElementById('modal-icon').textContent=m.icon;
+  document.getElementById('modal-num').textContent=m.num;
+  document.getElementById('modal-content').innerHTML=m.content;
   document.getElementById('modal-bg').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
-function fecharModal(e){ if(e.target===document.getElementById('modal-bg')) fecharModalBtn(); }
-function fecharModalBtn(){ document.getElementById('modal-bg').classList.remove('open'); document.body.style.overflow=''; }
+function fecharModal(e){if(e.target===document.getElementById('modal-bg'))fecharModalBtn();}
+function fecharModalBtn(){document.getElementById('modal-bg').classList.remove('open');document.body.style.overflow='';}
 
-// Cookie
-function aceitar(){ localStorage.setItem('sed_cookie','aceito'); document.getElementById('cookie').classList.remove('show'); }
-function recusar(){ localStorage.setItem('sed_cookie','essencial'); document.getElementById('cookie').classList.remove('show'); }
-window.addEventListener('load',()=>{ if(!localStorage.getItem('sed_cookie')) setTimeout(()=>document.getElementById('cookie').classList.add('show'),1500); });
+function aceitar(){localStorage.setItem('sed_ck','1');document.getElementById('cookie').classList.remove('show');}
+function recusar(){localStorage.setItem('sed_ck','0');document.getElementById('cookie').classList.remove('show');}
+window.addEventListener('load',()=>{if(!localStorage.getItem('sed_ck'))setTimeout(()=>document.getElementById('cookie').classList.add('show'),1500);});
 
-// Privacidade
-function abrirPriv(){ document.getElementById('priv-bg').classList.add('open'); document.body.style.overflow='hidden'; }
-function fecharPriv(){ document.getElementById('priv-bg').classList.remove('open'); document.body.style.overflow=''; }
-function fecharPrivEvt(e){ if(e.target===document.getElementById('priv-bg')) fecharPriv(); }
+function abrirPriv(){document.getElementById('priv-bg').classList.add('open');document.body.style.overflow='hidden';}
+function fecharPriv(){document.getElementById('priv-bg').classList.remove('open');document.body.style.overflow='';}
+function fecharPrivEvt(e){if(e.target===document.getElementById('priv-bg'))fecharPriv();}
 </script>
 </body>
 </html>
