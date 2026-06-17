@@ -269,20 +269,38 @@ function initReveal() {
    COOKIE
    ---------------------------------------------------------- */
 const cookie = $('#cookie');
+const waFloat = $('.wa-float');
 const COOKIE_KEY = 'sed_cookie_consent';
+
+function shiftWaFloat() {
+  // calcula a altura real do banner (varía por idioma/quebra de linha) + respiro de 18px
+  const h = cookie.offsetHeight;
+  document.documentElement.style.setProperty('--cookie-offset', `${h + 18}px`);
+  waFloat?.classList.add('is-shifted');
+}
+function unshiftWaFloat() {
+  waFloat?.classList.remove('is-shifted');
+}
 
 function initCookie() {
   let stored = null;
   try { stored = localStorage.getItem(COOKIE_KEY); } catch (_) {}
   if (stored) return;
-  setTimeout(() => cookie.classList.add('is-visible'), 1200);
+  setTimeout(() => {
+    cookie.classList.add('is-visible');
+    shiftWaFloat();
+  }, 1200);
 }
 function setConsent(value) {
   try { localStorage.setItem(COOKIE_KEY, value); } catch (_) {}
   cookie.classList.remove('is-visible');
+  unshiftWaFloat();
 }
 $('#cookieAccept')?.addEventListener('click', () => setConsent('accepted'));
 $('#cookieDecline')?.addEventListener('click', () => setConsent('essential'));
+window.addEventListener('resize', () => {
+  if (cookie.classList.contains('is-visible')) shiftWaFloat();
+}, { passive: true });
 
 /* ----------------------------------------------------------
    INIT
