@@ -467,3 +467,25 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.12;letter-spa
   [data-reveal]{opacity:1;transform:none;}
   html{scroll-behavior:auto;}
 }
+
+
+/* ============================================================
+   LOADER (intro) — só CSS, some sozinho, respeita reduced-motion
+   ============================================================ */
+.loader{
+  position:fixed;inset:0;z-index:9999;background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  animation:loaderOut .55s var(--ease) 1.5s forwards;
+}
+.loader__mark{position:relative;display:inline-block;animation:loaderSettle .9s var(--ease) both;}
+.loader__mark img{display:block;width:min(220px,52vw);height:auto;}
+.loader__sheen{
+  position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;
+  background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.85) 50%,transparent 62%);
+  background-size:280% 100%;background-position:120% 0;
+  animation:loaderSheen 1.4s ease-out .45s forwards;
+}
+@keyframes loaderSettle{0%{opacity:0;transform:scale(.94)}100%{opacity:1;transform:scale(1)}}
+@keyframes loaderSheen{to{background-position:-60% 0}}
+@keyframes loaderOut{to{opacity:0;visibility:hidden;pointer-events:none}}
+@media(prefers-reduced-motion:reduce){.loader{animation:none;display:none;}}
