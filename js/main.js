@@ -10,7 +10,6 @@
 const SERVICES = [
   {
     id: 'examen-odontoplastia',
-    img: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=900&q=80',
     index: '01',
     name: 'Examen Odontológico y Odontoplastía',
     short: 'Ajuste oclusal para mejorar la masticación, el confort con el freno y el rendimiento.',
@@ -19,12 +18,11 @@ const SERVICES = [
     sections: [
       ['¿Qué incluye?', 'Evaluación de cada pieza dental, encías y articulación temporomandibular. La odontoplastía (ajuste oclusal) corrige puntas de esmalte, ganchos y rampas que generan dolor y dificultan la masticación.'],
       ['Beneficios', 'Mejor masticación y aprovechamiento del alimento, mayor confort con el bocado y prevención de problemas mayores a futuro.'],
-      ['Frecuencia recomendada', 'Revisión anual en caballos adultos; semestral en animales de alta competição o mayores de 15 años.']
+      ['Frecuencia recomendada', 'Revisión anual en caballos adultos; semestral en animales de alta competición o mayores de 15 años.']
     ]
   },
   {
     id: 'exodoncias',
-    img: 'https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=900&q=80',
     index: '02',
     name: 'Exodoncias (Extracciones Dentales)',
     short: 'Diferentes técnicas de extracción con enfoque mínimamente invasivo.',
@@ -38,7 +36,6 @@ const SERVICES = [
   },
   {
     id: 'sinusitis',
-    img: 'https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?w=900&q=80',
     index: '03',
     name: 'Tratamiento de Sinusitis Secundaria',
     short: 'Infección sinusal de origen dental, tratada en su causa y no solo en sus síntomas.',
@@ -52,7 +49,6 @@ const SERVICES = [
   },
   {
     id: 'cirugia-sinusal',
-    img: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=900&q=80',
     index: '04',
     name: 'Cirugía Sinusal Avanzada',
     short: 'Trepanación y sinusotomía para acceso y tratamiento de los senos paranasales.',
@@ -66,7 +62,6 @@ const SERVICES = [
   },
   {
     id: 'radiologia',
-    img: 'https://images.unsplash.com/photo-1534773728080-33d31da27ae5?w=900&q=80',
     index: '05',
     name: 'Radiología Digital de Cabeza Equina',
     short: 'Soporte en imágenes de alta precisión para estructuras dentales y óseas.',
@@ -80,7 +75,6 @@ const SERVICES = [
   },
   {
     id: 'pre-compra',
-    img: 'https://images.unsplash.com/photo-1518467166778-b88f373ffec7?w=900&q=80',
     index: '06',
     name: 'Examen Odontológico Pre-compra',
     short: 'Evaluación dental completa antes de adquirir el animal.',
@@ -122,50 +116,65 @@ function el(tag, attrs = {}, children = []) {
    ---------------------------------------------------------- */
 function renderServices() {
   const grid = $('#servGrid');
-  if (!grid) return;
+  const detail = $('#servDetail');
+  if (!grid || !detail) return;
 
+  // monta a lista compacta de serviços (chips clicáveis)
   SERVICES.forEach((svc, i) => {
-    const row = el('article', {
-      class: 'serv__row' + (i % 2 ? ' serv__row--rev' : ''),
-      'data-reveal': ''
+    const card = el('button', {
+      class: 'serv__card', type: 'button',
+      'data-reveal': '', 'data-delay': String((i % 3) + 1)
     });
-
-    // mídia (imagem do procedimento)
-    const media = el('figure', { class: 'serv__media' }, [
-      el('img', {
-        src: svc.img, alt: svc.name, loading: 'lazy',
-        referrerpolicy: 'no-referrer'
-      }),
-      el('span', { class: 'serv__badge' }, svc.index)
-    ]);
-
-    // corpo: nome + blocos de detalhe (problema/solução já existentes)
-    const body = el('div', { class: 'serv__body' });
-    body.appendChild(el('span', {
-      class: 'serv__icon', 'aria-hidden': 'true',
-      html: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">${svc.icon}</svg>`
-    }));
-    body.appendChild(el('h3', { class: 'serv__name' }, svc.name));
-    body.appendChild(el('p', { class: 'serv__lead' }, svc.short));
-
-    const dl = el('dl', { class: 'serv__detail' });
-    svc.sections.forEach(([term, desc]) => {
-      dl.appendChild(el('dt', {}, term));
-      dl.appendChild(el('dd', {}, desc));
-    });
-    body.appendChild(dl);
-
-    const cta = el('a', {
-      class: 'serv__cta', href: WA_LINK, target: '_blank', rel: 'noopener'
-    }, [
-      'Consultar este servicio',
-      el('span', { 'aria-hidden': 'true', html: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' })
-    ]);
-    body.appendChild(cta);
-
-    row.append(media, body);
-    grid.appendChild(row);
+    card.append(
+      el('div', { class: 'serv__top' }, [
+        el('span', { class: 'serv__icon', 'aria-hidden': 'true', html: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">${svc.icon}</svg>` }),
+        el('span', { class: 'serv__index' }, svc.index)
+      ]),
+      el('h3', { class: 'serv__name' }, svc.name),
+      el('p', { class: 'serv__desc' }, svc.short),
+      el('span', { class: 'serv__more' }, [
+        'Ver detalle',
+        el('span', { 'aria-hidden': 'true', html: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' })
+      ])
+    );
+    card.addEventListener('click', () => openService(svc));
+    grid.appendChild(card);
   });
+
+  // botão voltar
+  $('#servBack')?.addEventListener('click', closeService);
+}
+
+function openService(svc) {
+  const grid = $('#servGrid');
+  const detail = $('#servDetail');
+
+  // preenche o detalhe
+  $('#servDetailIndex').textContent = svc.index;
+  $('#servDetailName').textContent = svc.name;
+  $('#servDetailLead').textContent = svc.short;
+
+  const dl = $('#servDetailBody');
+  dl.replaceChildren();
+  svc.sections.forEach(([term, desc]) => {
+    dl.appendChild(el('dt', {}, term));
+    dl.appendChild(el('dd', {}, desc));
+  });
+
+  // troca de vista: esconde a lista, mostra o detalhe
+  grid.hidden = true;
+  detail.hidden = false;
+  // leva o foco/scroll pro topo da seção
+  $('#servicios').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  $('#servBack')?.focus();
+}
+
+function closeService() {
+  const grid = $('#servGrid');
+  const detail = $('#servDetail');
+  detail.hidden = true;
+  grid.hidden = false;
+  $('#servicios').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 /* ----------------------------------------------------------
@@ -296,7 +305,7 @@ initCookie();
     btn.addEventListener('click', () => {
       const iframe = el('iframe', {
         src: `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`,
-        title: 'Video del procedimento',
+        title: 'Video del procedimiento',
         allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
         allowfullscreen: ''
       });
