@@ -308,3 +308,24 @@ window.addEventListener('resize', () => {
 renderServices();
 initReveal();   // se llama después de renderServices para observar las tarjetas nuevas
 initCookie();
+
+/* ----------------------------------------------------------
+   HERO · parallax sutil de la foto (más lento que el scroll)
+   ---------------------------------------------------------- */
+(function initHeroParallax() {
+  const img = document.querySelector('.hero__media img');
+  if (!img) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(max-width: 900px)').matches) return; // en móvil no, evita jank
+  let ticking = false;
+  function update() {
+    const y = window.scrollY;
+    if (y < window.innerHeight) {
+      img.style.setProperty('--py', (y * 0.12) + 'px');
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+})();
