@@ -10,6 +10,7 @@
 const SERVICES = [
   {
     id: 'examen-odontoplastia',
+    img: 'https://images.unsplash.com/photo-1598974357801-cbca100e65d3?w=900&q=80',
     index: '01',
     name: 'Examen Odontológico y Odontoplastía',
     short: 'Ajuste oclusal para mejorar la masticación, el confort con el freno y el rendimiento.',
@@ -23,6 +24,7 @@ const SERVICES = [
   },
   {
     id: 'exodoncias',
+    img: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=900&q=80',
     index: '02',
     name: 'Exodoncias (Extracciones Dentales)',
     short: 'Diferentes técnicas de extracción con enfoque mínimamente invasivo.',
@@ -36,6 +38,7 @@ const SERVICES = [
   },
   {
     id: 'sinusitis',
+    img: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=900&q=80',
     index: '03',
     name: 'Tratamiento de Sinusitis Secundaria',
     short: 'Infección sinusal de origen dental, tratada en su causa y no solo en sus síntomas.',
@@ -49,6 +52,7 @@ const SERVICES = [
   },
   {
     id: 'cirugia-sinusal',
+    img: 'https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?w=900&q=80',
     index: '04',
     name: 'Cirugía Sinusal Avanzada',
     short: 'Trepanación y sinusotomía para acceso y tratamiento de los senos paranasales.',
@@ -62,6 +66,7 @@ const SERVICES = [
   },
   {
     id: 'radiologia',
+    img: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=900&q=80',
     index: '05',
     name: 'Radiología Digital de Cabeza Equina',
     short: 'Soporte en imágenes de alta precisión para estructuras dentales y óseas.',
@@ -75,6 +80,7 @@ const SERVICES = [
   },
   {
     id: 'pre-compra',
+    img: 'https://images.unsplash.com/photo-1534773728080-33d31da27ae5?w=900&q=80',
     index: '06',
     name: 'Examen Odontológico Pre-compra',
     short: 'Evaluación dental completa antes de adquirir el animal.',
@@ -119,104 +125,48 @@ function renderServices() {
   if (!grid) return;
 
   SERVICES.forEach((svc, i) => {
-    const card = el('button', {
-      class: 'serv__card',
-      type: 'button',
-      'aria-haspopup': 'dialog',
-      'data-reveal': '',
-      'data-delay': String((i % 3) + 1)
+    const row = el('article', {
+      class: 'serv__row' + (i % 2 ? ' serv__row--rev' : ''),
+      'data-reveal': ''
     });
 
-    const top = el('div', { class: 'serv__top' }, [
-      el('span', { class: 'serv__icon', 'aria-hidden': 'true', html: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">${svc.icon}</svg>` }),
-      el('span', { class: 'serv__index' }, svc.index)
+    // mídia (imagem do procedimento)
+    const media = el('figure', { class: 'serv__media' }, [
+      el('img', {
+        src: svc.img, alt: svc.name, loading: 'lazy',
+        referrerpolicy: 'no-referrer'
+      }),
+      el('span', { class: 'serv__badge' }, svc.index)
     ]);
 
-    const more = el('span', { class: 'serv__more' }, [
-      'Saber más',
+    // corpo: nome + blocos de detalhe (problema/solução já existentes)
+    const body = el('div', { class: 'serv__body' });
+    body.appendChild(el('span', {
+      class: 'serv__icon', 'aria-hidden': 'true',
+      html: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">${svc.icon}</svg>`
+    }));
+    body.appendChild(el('h3', { class: 'serv__name' }, svc.name));
+    body.appendChild(el('p', { class: 'serv__lead' }, svc.short));
+
+    const dl = el('dl', { class: 'serv__detail' });
+    svc.sections.forEach(([term, desc]) => {
+      dl.appendChild(el('dt', {}, term));
+      dl.appendChild(el('dd', {}, desc));
+    });
+    body.appendChild(dl);
+
+    const cta = el('a', {
+      class: 'serv__cta', href: WA_LINK, target: '_blank', rel: 'noopener'
+    }, [
+      'Consultar este servicio',
       el('span', { 'aria-hidden': 'true', html: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' })
     ]);
+    body.appendChild(cta);
 
-    card.append(
-      top,
-      el('h3', { class: 'serv__name' }, svc.name),
-      el('p', { class: 'serv__desc' }, svc.short),
-      more
-    );
-
-    card.addEventListener('click', () => openServiceDialog(svc));
-    grid.appendChild(card);
+    row.append(media, body);
+    grid.appendChild(row);
   });
 }
-
-/* ----------------------------------------------------------
-   DIALOG DE SERVICIO  (<dialog> nativo)
-   ---------------------------------------------------------- */
-const servDialog = $('#servDialog');
-
-function openServiceDialog(svc) {
-  $('#dialogTag').textContent = `Servicio ${svc.index}`;
-  $('#dialogTitle').textContent = svc.name;
-
-  const body = $('#dialogBody');
-  body.replaceChildren();   // limpia sin innerHTML
-
-  if (svc.hasVideo) {
-    const wrap = el('div', { class: 'dialog__video' });
-    const video = el('video', {
-      src: 'assets/videos/examen-odontologico.mp4',
-      controls: '',
-      preload: 'metadata',
-      playsinline: '',
-      poster: 'assets/images/examen-poster.jpg'
-    });
-    wrap.appendChild(video);
-    body.appendChild(wrap);
-  }
-
-  svc.sections.forEach(([h, p]) => {
-    body.appendChild(
-      el('div', { class: 'dialog__section' }, [
-        el('h4', {}, h),
-        el('p', {}, p)
-      ])
-    );
-  });
-
-  const cta = el('a', {
-    class: 'btn btn--primary dialog__cta',
-    href: WA_LINK, target: '_blank', rel: 'noopener'
-  }, [
-    'Consultar este servicio',
-    el('span', { 'aria-hidden': 'true', html: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' })
-  ]);
-  body.appendChild(cta);
-
-  servDialog.showModal();
-}
-
-$('#dialogClose')?.addEventListener('click', () => servDialog.close());
-servDialog?.addEventListener('click', (e) => {           // clic fuera = cerrar
-  const r = servDialog.getBoundingClientRect();
-  if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) {
-    servDialog.close();
-  }
-});
-
-/* ----------------------------------------------------------
-   DIALOG DE PRIVACIDAD
-   ---------------------------------------------------------- */
-const privDialog = $('#privDialog');
-const openPriv = (e) => { e?.preventDefault(); privDialog.showModal(); };
-$('#privBtn')?.addEventListener('click', openPriv);
-$('#cookiePriv')?.addEventListener('click', openPriv);
-$('#privClose')?.addEventListener('click', () => privDialog.close());
-privDialog?.addEventListener('click', (e) => {
-  const r = privDialog.getBoundingClientRect();
-  if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) {
-    privDialog.close();
-  }
-});
 
 /* ----------------------------------------------------------
    NAVBAR — fondo sólido al hacer scroll
@@ -328,4 +278,29 @@ initCookie();
   window.addEventListener('scroll', () => {
     if (!ticking) { requestAnimationFrame(update); ticking = true; }
   }, { passive: true });
+})();
+
+/* ----------------------------------------------------------
+   CASO · YouTube lazy (carga el iframe solo al hacer clic)
+   ---------------------------------------------------------- */
+(function initCaseVideo() {
+  $$('.case__video').forEach((box) => {
+    const id = box.getAttribute('data-yt');
+    const btn = box.querySelector('.case__play');
+    if (!btn) return;
+    // si todavía no hay ID real, el botón no hace nada (placeholder)
+    if (!id || id === 'VIDEO_ID') {
+      btn.style.cursor = 'default';
+      return;
+    }
+    btn.addEventListener('click', () => {
+      const iframe = el('iframe', {
+        src: `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`,
+        title: 'Video del procedimiento',
+        allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
+        allowfullscreen: ''
+      });
+      box.replaceChildren(iframe);
+    });
+  });
 })();
