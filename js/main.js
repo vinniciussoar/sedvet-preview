@@ -10,7 +10,7 @@
 const SERVICES = [
   {
     id: 'examen-odontoplastia',
-    img: 'https://images.unsplash.com/photo-1598974357801-cbca100e65d3?w=900&q=80',
+    img: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=900&q=80',
     index: '01',
     name: 'Examen Odontológico y Odontoplastía',
     short: 'Ajuste oclusal para mejorar la masticación, el confort con el freno y el rendimiento.',
@@ -19,12 +19,12 @@ const SERVICES = [
     sections: [
       ['¿Qué incluye?', 'Evaluación de cada pieza dental, encías y articulación temporomandibular. La odontoplastía (ajuste oclusal) corrige puntas de esmalte, ganchos y rampas que generan dolor y dificultan la masticación.'],
       ['Beneficios', 'Mejor masticación y aprovechamiento del alimento, mayor confort con el bocado y prevención de problemas mayores a futuro.'],
-      ['Frecuencia recomendada', 'Revisión anual en caballos adultos; semestral en animales de alta competición o mayores de 15 años.']
+      ['Frecuencia recomendada', 'Revisión anual en caballos adultos; semestral en animales de alta competição o mayores de 15 años.']
     ]
   },
   {
     id: 'exodoncias',
-    img: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=900&q=80',
+    img: 'https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=900&q=80',
     index: '02',
     name: 'Exodoncias (Extracciones Dentales)',
     short: 'Diferentes técnicas de extracción con enfoque mínimamente invasivo.',
@@ -38,7 +38,7 @@ const SERVICES = [
   },
   {
     id: 'sinusitis',
-    img: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=900&q=80',
+    img: 'https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?w=900&q=80',
     index: '03',
     name: 'Tratamiento de Sinusitis Secundaria',
     short: 'Infección sinusal de origen dental, tratada en su causa y no solo en sus síntomas.',
@@ -52,7 +52,7 @@ const SERVICES = [
   },
   {
     id: 'cirugia-sinusal',
-    img: 'https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?w=900&q=80',
+    img: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=900&q=80',
     index: '04',
     name: 'Cirugía Sinusal Avanzada',
     short: 'Trepanación y sinusotomía para acceso y tratamiento de los senos paranasales.',
@@ -66,7 +66,7 @@ const SERVICES = [
   },
   {
     id: 'radiologia',
-    img: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=900&q=80',
+    img: 'https://images.unsplash.com/photo-1534773728080-33d31da27ae5?w=900&q=80',
     index: '05',
     name: 'Radiología Digital de Cabeza Equina',
     short: 'Soporte en imágenes de alta precisión para estructuras dentales y óseas.',
@@ -80,7 +80,7 @@ const SERVICES = [
   },
   {
     id: 'pre-compra',
-    img: 'https://images.unsplash.com/photo-1534773728080-33d31da27ae5?w=900&q=80',
+    img: 'https://images.unsplash.com/photo-1518467166778-b88f373ffec7?w=900&q=80',
     index: '06',
     name: 'Examen Odontológico Pre-compra',
     short: 'Evaluación dental completa antes de adquirir el animal.',
@@ -296,7 +296,7 @@ initCookie();
     btn.addEventListener('click', () => {
       const iframe = el('iframe', {
         src: `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`,
-        title: 'Video del procedimiento',
+        title: 'Video del procedimento',
         allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
         allowfullscreen: ''
       });
